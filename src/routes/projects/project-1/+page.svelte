@@ -11,11 +11,11 @@
 	</div> -->
 	<h1 class="mb-4 text-3xl font-bold">My First Blog Post</h1>
 	<p class="mb-6 text-gray-500">
-		<span class="blog-post-date">10/09/2024</span>
-		by <span class="blog-post-author">zavos.dev</span>
+		<span class="mr-4">10/09/2024</span>
+		by <span class="prose italic">zavos.dev</span>
 	</p>
 
-	<div class="blog-post-content">
+	<div class="prose text-lg leading-relaxed">
 		Hello there! Welcome to my personal website. I'm excited to share this space with you as I
 		embark on a journey to learn and master Svelte.<br />
 		This website serves as a playground for me to experiment with Svelte, a modern front-end framework
@@ -26,10 +26,6 @@
 </article>
 
 <style>
-	.blog-post-date {
-		margin-right: 1rem;
-	}
-
 	.blog-post-content {
 		font-size: 1.2rem;
 		line-height: 1.5;
