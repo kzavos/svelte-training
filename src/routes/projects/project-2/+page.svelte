@@ -24,6 +24,9 @@
 			Click here
 		</button>
 	</div>
+
+	<br />
+	<p>You can chain modifiers together,<br /> e.g. <code>on:click|once|capture=""</code>.</p>
 </article>
 
 <style>
