@@ -4,14 +4,14 @@
 	// Example data
 	const cards = [
 		{
-			imageSrc: './images/project-images/project-1.jpg',
-			description: 'Second one',
-			link: '/projects/project-2'
+			imageSrc: './images/project-images/welcome.jpg',
+			description: 'Welcome',
+			link: '/projects/project-1'
 		},
 		{
 			imageSrc: './images/project-images/project-1.jpg',
-			description: 'Welcome',
-			link: '/projects/project-1'
+			description: 'Events / Event modifiers',
+			link: '/projects/project-2'
 		}
 	];
 </script>
