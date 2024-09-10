@@ -7,8 +7,7 @@
 		<span class="mr-4">10/09/2024</span>
 		by <span class="prose italic">zavos.dev</span>
 	</p>
-    
-	</div>
+
 	<div class="container mx-auto max-w-3xl break-words px-4 py-8">
 		<p class="text-lg">
 			You can only click this button once by using

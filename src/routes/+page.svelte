@@ -12,6 +12,11 @@
 			imageSrc: './images/project-images/project-1.jpg',
 			description: 'Events / Event modifiers',
 			link: '/projects/project-2'
+		},
+		{
+			imageSrc: './images/project-images/project-3.png',
+			description: 'Events / Component events',
+			link: '/projects/project-3'
 		}
 	];
 </script>
