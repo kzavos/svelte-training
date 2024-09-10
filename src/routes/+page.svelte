@@ -18,10 +18,10 @@
 
 <div class="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 	{#each cards as { imageSrc, description, link }}
-		<Card {imageSrc} {description} {link} />
+		<Card {imageSrc} {description} {link} lazy />
 	{/each}
 </div>
 
-<style >
+<style>
 	/* Optional additional styling */
 </style>
