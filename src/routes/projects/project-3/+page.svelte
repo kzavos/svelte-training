@@ -1,4 +1,5 @@
 <script>
+	import Inner from '../../../components/inner.svelte';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -7,6 +8,7 @@
 		<span class="mr-4">10/09/2024</span>
 		by <span class="prose italic">zavos.dev</span>
 	</p>
+	<p>Interesting concepts</p>
 
 	<div class="container mx-auto max-w-3xl break-words px-4 py-8">
 		<p class="text-lg">
@@ -15,13 +17,8 @@
 			<code>on:click|once={() => alert('clicked')}</code>
 		</p>
 		<br />
-		<button class="btn btn-outline btn-success" on:click|once={() => alert('clicked')}>
-			Click here
-		</button>
+		<Inner />
 	</div>
-
-	<br />
-	<p>You can chain modifiers together,<br /> e.g. <code>on:click|once|capture=""</code>.</p>
 </article>
 
 <style>
