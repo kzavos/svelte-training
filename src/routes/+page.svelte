@@ -4,14 +4,12 @@
 	// Example data
 	const cards = [
 		{
-			imageSrc:
-				'https://t3.ftcdn.net/jpg/06/04/96/54/360_F_604965492_lCfxDUwNF1YiogR3SN0lbmbdvFnfDCHa.jpg',
+			imageSrc: './images/project-images/project-1.jpg',
 			description: 'Second one',
 			link: '/projects/project-2'
 		},
 		{
-			imageSrc:
-				'https://t3.ftcdn.net/jpg/06/04/96/54/360_F_604965492_lCfxDUwNF1YiogR3SN0lbmbdvFnfDCHa.jpg',
+			imageSrc: './images/project-images/project-1.jpg',
 			description: 'Welcome',
 			link: '/projects/project-1'
 		}
@@ -24,6 +22,6 @@
 	{/each}
 </div>
 
-<style>
+<style >
 	/* Optional additional styling */
 </style>
