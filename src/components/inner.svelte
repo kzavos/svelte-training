@@ -1,6 +1,10 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
 	function sayHello() {
-		dispatchEvent('message', {
+		dispatch('message', {
 			text: 'Hello sir thanks for stopping by!'
 		});
 	}
