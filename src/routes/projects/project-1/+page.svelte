@@ -2,13 +2,6 @@
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
-	<!-- <div class="prose max-w-none">
-		<img
-			src="/images/project-images/welcome.jpg"
-			alt="Welcome"
-			class="mb-6 w-full rounded-lg shadow-md"
-		/>
-	</div> -->
 	<h1 class="mb-4 text-3xl font-bold">My First Blog Post</h1>
 	<p class="mb-6 text-gray-500">
 		<span class="mr-4">10/09/2024</span>
@@ -26,8 +19,5 @@
 </article>
 
 <style>
-	.blog-post-content {
-		font-size: 1.2rem;
-		line-height: 1.5;
-	}
+	/* styling here */
 </style>
