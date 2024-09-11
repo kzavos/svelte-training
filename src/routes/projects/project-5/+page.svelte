@@ -30,6 +30,8 @@
 	let flavours = [];
 
 	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+
+	let value = `Some words are *italic*, some are **bold**\n\n- lists\n- are\n- cool`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -219,6 +221,29 @@
 	<p>Press and hold the control key (or the command key on MacOS) to select multiple options.</p>
 	<br />
 	<div class="prose text-3xl font-bold leading-relaxed">Text area inputs</div>
+	<br />
+	<p>
+		The <code>text area</code> element behaves similarly to a text input in Svelte - use
+		<code>bind:value</code>
+	</p>
+	<br />
+	<div class="grid">
+		input
+		<br />
+		<br />
+		<textarea
+			class="block h-full min-h-[150px] w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+			bind:value
+		></textarea>
+		<br />
+		output
+		<br />
+		<br />
+		<textarea
+			class="block h-full min-h-[150px] w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+			bind:value
+		></textarea>
+	</div>
 </article>
 
 <style>
