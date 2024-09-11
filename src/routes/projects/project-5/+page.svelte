@@ -1,4 +1,5 @@
 <script>
+	let name = 'Kostas';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -14,6 +15,23 @@
 		working with the svelte.dev tutorial
 		<br />
 	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">Text inputs</div>
+	<br />
+	<p>
+		We are using the <code>bind:value</code> directive which allows us to replace the name value to anything
+		that we type on the field.
+	</p>
+	<br />
+	<div class="flex gap-3">
+		Name:<br />
+		<input bind:value={name} placeholder="Type your name here" />
+	</div>
+	<br />
+	<h1>Hello {name}!</h1>
+	<br />
+
+	<div class="prose text-3xl font-bold leading-relaxed">Numeric inputs</div>
 </article>
 
 <style>

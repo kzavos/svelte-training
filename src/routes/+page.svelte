@@ -25,7 +25,7 @@
 		},
 		{
 			imageSrc: './images/project-images/project-5.png',
-			description: 'Bindings',
+			description: 'Bindings	',
 			link: '/projects/project-5'
 		}
 	];
