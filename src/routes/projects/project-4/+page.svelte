@@ -1,4 +1,9 @@
 <script>
+	import Outer from '../../../components/outer.svelte';
+
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -9,16 +14,18 @@
 	</p>
 
 	<div class="prose text-lg leading-relaxed">
-		Hey there, fellow Svelte enthusiasts! <br />Today, we're diving into the world of event
-		modifiers powerful tools in Svelte that help us control how events interact with our components.<br
-		/>
+		We are importing our previous inner component into a new component and forwarding events using
+		the shorthand on:message method.
 	</div>
 	<div class="container mx-auto max-w-3xl break-words px-4 py-8">
-		<p class="text-large">placeholder text</p>
+		<p class="text-large">
+			Since this is a new page, we are recreating the handleMessage(event) function in order to
+			listen for event changes on the previous compoent. <br /> We are "listening" for events.<br />
+			If an event happens, we then alert the text content of detail. <br />
+			<code>alert(event.detail.text);</code>
+		</p>
 	</div>
-
-	<br />
-	<p>You can chain modifiers together,<br /> e.g. <code>on:click|once|capture=""</code>.</p>
+	<Outer on:message={handleMessage} />
 </article>
 
 <style>
