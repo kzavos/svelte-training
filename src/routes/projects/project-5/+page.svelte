@@ -1,5 +1,7 @@
 <script>
 	let name = 'Kostas';
+	let a = '1';
+	let b = '2';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -11,8 +13,8 @@
 
 	<div class="prose text-lg leading-relaxed">
 		Hey there, fellow Svelte enthusiasts! <br />
-		I will include all parts of a chapter into a single post and make my life a little bit easier while
-		working with the svelte.dev tutorial
+		I will include all parts of a chapter into a single post which makes my life a little bit easier
+		while working with the svelte.dev tutorial
 		<br />
 	</div>
 	<br />
@@ -32,6 +34,24 @@
 	<br />
 
 	<div class="prose text-3xl font-bold leading-relaxed">Numeric inputs</div>
+	<br />
+	<p>
+		The same applies with numeric value. Svelte takes care of it for you by using <code
+			>bind:value</code
+		>.
+	</p>
+	<br />
+	<label class="flex gap-3">
+		<input type="number" bind:value={a} min="0" max="10" />
+		<input type="range" bind:value={a} min="0" max="10" />
+	</label>
+	<br />
+	<label class="flex gap-3">
+		<input type="number" bind:value={b} min="0" max="10" />
+		<input type="range" bind:value={b} min="0" max="10" />
+	</label>
+	<br />
+	<p>{a} + {b} = {a + b}</p>
 </article>
 
 <style>
