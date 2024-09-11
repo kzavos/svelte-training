@@ -36,7 +36,7 @@
 	<div class="prose text-3xl font-bold leading-relaxed">Numeric inputs</div>
 	<br />
 	<p>
-		The same applies with numeric value. Svelte takes care of it for you by using <code
+		The same applies with numeric values. Svelte takes care of it for you by using <code
 			>bind:value</code
 		>.
 	</p>
