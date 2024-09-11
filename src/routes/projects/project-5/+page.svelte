@@ -197,6 +197,28 @@
 			of {formatter.format(flavours)}
 		</p>
 	{/if}
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">Select multiple</div>
+	<br />
+	<p>
+		You can also use <code>select</code> element which can have the <code>multiple</code> attribute,
+		in which case it will populate an array rathen thanselecting a single value
+	</p>
+	<br />
+	<select multiple bind:value={flavours}>
+		{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavour}
+			<option>{flavour}</option>
+		{/each}
+		<select>
+			<br />
+		</select></select
+	>
+	<br />
+	<br />
+	<p>Press and hold the control key (or the command key on MacOS) to select multiple options.</p>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">Text area inputs</div>
 </article>
 
 <style>
