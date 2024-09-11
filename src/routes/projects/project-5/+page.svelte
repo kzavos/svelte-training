@@ -2,6 +2,7 @@
 	let name = 'Kostas';
 	let a = '1';
 	let b = '2';
+	let yes = false;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -52,6 +53,28 @@
 	</label>
 	<br />
 	<p>{a} + {b} = {a + b}</p>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">Checkbox inputs</div>
+	<br />
+
+	<p>We are using <code>bind:checked</code> instead of binding to <code>input.value</code></p>
+	<br />
+	<label class="flex items-center gap-3">
+		<input type="checkbox" bind:checked={yes} />
+		<p class="inline-block align-middle">Yes! Send me regular email spam</p>
+	</label>
+	<br />
+	{#if yes}
+		<p>Thank you. We will bombard your inbox and sell your personal details.</p>
+	{:else}
+		<p class=" text-red-500">
+			WARNING: You must opt in to continue. If you're not paying, you're the product.
+		</p>
+	{/if}
+	<br />
+	<button class="btn" disabled={!yes}
+		><a href="https://reddit.com/r/sveltejs">Access the main site</a></button
+	>
 </article>
 
 <style>
