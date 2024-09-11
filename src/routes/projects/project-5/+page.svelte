@@ -14,7 +14,7 @@
 	<div class="prose text-lg leading-relaxed">
 		Hey there, fellow Svelte enthusiasts! <br />
 		I will include all parts of a chapter into a single post which makes my life a little bit easier
-		while working with the svelte.dev tutorial
+		while working with the svelte.dev tutorial.
 		<br />
 	</div>
 	<br />

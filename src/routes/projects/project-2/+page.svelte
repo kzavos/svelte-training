@@ -15,7 +15,7 @@
 	</div>
 	<div class="container mx-auto max-w-3xl break-words px-4 py-8">
 		<p class="text-lg">
-			You can only click this button once by using
+			You can prevent further clicks on this button by using
 			<br />
 			<code>on:click|once={() => alert('clicked')}</code>
 		</p>
