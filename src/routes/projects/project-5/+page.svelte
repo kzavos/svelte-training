@@ -204,8 +204,8 @@
 	<div class="prose text-3xl font-bold leading-relaxed">Select multiple</div>
 	<br />
 	<p>
-		You can also use <code>select</code> element which can have the <code>multiple</code> attribute,
-		in which case it will populate an array rathen thanselecting a single value
+		You can also use a <code>select</code> element which can have the <code>multiple</code> attribute,
+		which will populate an array rather than selecting a single value
 	</p>
 	<br />
 	<select multiple bind:value={flavours}>
