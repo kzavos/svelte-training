@@ -36,14 +36,12 @@
 		The most common function you will be using to run code at key moments is <b>onMount</b> which
 		runs after the component is first rendered to the DOM.
 		<br />
-		This means it's the perfect time for tasks that rely on the component being fully integrated within
-		the web page.
 	</div>
 	<canvas width="200" height="150"></canvas>
 	<br />
 	<div class="prose text-lg leading-relaxed">
-		You can leverage onMount to execute actions that depend on the component being fully rendered in
-		the DOM, such as starting animations or setting up interactive elements.
+		You can leverage <b>onMount</b> to execute actions that depend on the component being fully rendered
+		in the DOM, such as starting animations or setting up interactive elements.
 	</div>
 </article>
 
