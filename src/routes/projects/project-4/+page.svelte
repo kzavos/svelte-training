@@ -17,6 +17,10 @@
 		We are importing our previous inner component into a new component and forwarding events using
 		the shorthand on:message method.
 	</div>
+	<br />
+	<Outer on:message={handleMessage} />
+
+	<br />
 	<div class="container mx-auto max-w-3xl break-words px-4 py-8">
 		<p class="text-large">
 			Since this is a new page, we are recreating the handleMessage(event) function in order to
@@ -25,7 +29,6 @@
 			<code>alert(event.detail.text);</code>
 		</p>
 	</div>
-	<Outer on:message={handleMessage} />
 </article>
 
 <style>
