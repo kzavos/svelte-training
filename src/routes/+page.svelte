@@ -17,6 +17,11 @@
 			imageSrc: './images/project-images/project-3.png',
 			description: 'Events / Component events',
 			link: '/projects/project-3'
+		},
+		{
+			imageSrc: './images/project-images/project-4.png',
+			description: 'Event forwarding',
+			link: '/projects/project-4'
 		}
 	];
 </script>
