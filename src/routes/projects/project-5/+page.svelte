@@ -25,6 +25,11 @@
 	function handleSumbit() {
 		alert(`answer questions with ${selected.id} (${selected.text}) with "${answer}"`);
 	}
+
+	let scoops = 1;
+	let flavours = [];
+
+	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -147,6 +152,51 @@
 	<p>
 		Selected question {selected ? selected.id : `[waiting...]`}
 	</p>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">Group inputs</div>
+	<br />
+
+	<p>
+		If you have multiple types input, such as <code>type='radio'</code> or
+		<code>type="checkbox"</code>, leading to the same value you can use <code>bind:group</code> along
+		with the value
+	</p>
+	<br />
+	<h2 class="text-lg">Size</h2>
+	<br />
+	{#each [1, 2, 3] as number}
+		<label class="flex gap-3">
+			<input type="radio" name="scoops" value={number} bind:group={scoops} />
+			{number}
+			{number === 1 ? 'scoop' : 'scoops'}
+		</label>
+	{/each}
+
+	<br />
+	<h2 class="text-lg">Flavours</h2>
+	<br />
+
+	{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavour}
+		<label class="flex gap-3">
+			<input type="checkbox" name="flavours" value={flavour} bind:group={flavours} />
+
+			{flavour}
+		</label>
+	{/each}
+
+	<br />
+
+	{#if flavours.length === 0}
+		<p>Please select at least one flavour</p>
+	{:else if flavours.length > scoops}
+		<p>Can't order more flavours than scoops!</p>
+	{:else}
+		<p>
+			You orderered {scoops}
+			{scoops === 1 ? 'scoop' : 'scoops'}
+			of {formatter.format(flavours)}
+		</p>
+	{/if}
 </article>
 
 <style>
