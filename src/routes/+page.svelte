@@ -22,6 +22,11 @@
 			imageSrc: './images/project-images/project-4.png',
 			description: 'Event forwarding',
 			link: '/projects/project-4'
+		},
+		{
+			imageSrc: './images/project-images/project-5.png',
+			description: 'Bindings',
+			link: '/projects/project-5'
 		}
 	];
 </script>
