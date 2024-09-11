@@ -3,6 +3,28 @@
 	let a = '1';
 	let b = '2';
 	let yes = false;
+	let questions = [
+		{
+			id: 1,
+			text: 'Where did you go to school?'
+		},
+		{
+			id: 2,
+			text: "What is your mother's name?"
+		},
+		{
+			id: 3,
+			text: `What is another personal fact that an attacker could easily find with Google?`
+		}
+	];
+
+	let selected;
+
+	let answer = '';
+
+	function handleSumbit() {
+		alert(`answer questions with ${selected.id} (${selected.text}) with "${answer}"`);
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -17,6 +39,24 @@
 		I will include all parts of a chapter into a single post which makes my life a little bit easier
 		while working with the svelte.dev tutorial.
 		<br />
+		<br />
+
+		<p class="font-3xl prose font-bold">What is binding?</p>
+		<br />
+		<ul class="list-disc">
+			<li>
+				In Svelte, binding is a mechanism that establishes a two-way connection between a
+				component's property and the value of an HTML element attribute or a JavaScript variable.
+			</li>
+			<li>
+				This means that when the value of the property changes, the corresponding HTML element
+				attribute or JavaScript variable is automatically updated, and vice versa.
+			</li>
+			<li>
+				Binding is achieved using the bind directive, which is applied to the element attribute or
+				JavaScript variable.
+			</li>
+		</ul>
 	</div>
 	<br />
 	<div class="prose text-3xl font-bold leading-relaxed">Text inputs</div>
@@ -65,7 +105,9 @@
 	</label>
 	<br />
 	{#if yes}
-		<p>Thank you. We will bombard your inbox and sell your personal details.</p>
+		<p class="animate-bounce">
+			Thank you. We will bombard your inbox and sell your personal details.
+		</p>
 	{:else}
 		<p class=" text-red-500">
 			WARNING: You must opt in to continue. If you're not paying, you're the product.
@@ -75,6 +117,36 @@
 	<button class="btn" disabled={!yes}
 		><a href="https://reddit.com/r/sveltejs">Access the main site</a></button
 	>
+
+	<br />
+	<br />
+
+	<div class="prose text-3xl font-bold leading-relaxed">Select bindings</div>
+	<br />
+
+	<p>We can also use <code>bind:value</code> with select elements</p>
+	<br />
+
+	<h2 class="text-lg">Insecurity questions:</h2>
+	<br />
+	<form on:select|preventDefault={handleSumbit}>
+		<select
+			bind:value={selected}
+			on:change={() => {
+				answer = ``;
+			}}
+		>
+			{#each questions as question}
+				<option value={question}>
+					{question.text}
+				</option>
+			{/each}
+		</select>
+	</form>
+	<br />
+	<p>
+		Selected question {selected ? selected.id : `[waiting...]`}
+	</p>
 </article>
 
 <style>
