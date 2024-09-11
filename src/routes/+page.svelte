@@ -27,6 +27,11 @@
 			imageSrc: './images/project-images/project-5.png',
 			description: 'Bindings	',
 			link: '/projects/project-5'
+		},
+		{
+			imageSrc: './images/project-images/project-6.png',
+			description: 'Lifecycles',
+			link: '/projects/project-6'
 		}
 	];
 </script>
