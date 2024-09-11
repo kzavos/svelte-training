@@ -29,13 +29,12 @@
 			<code>alert(event.detail.text);</code>
 		</p>
 	</div>
-	' '
+
 	<div class="prose text-lg leading-relaxed">
 		Event forwarding also works for DOM events too. If we have a component that includes a button,
 		and we want to get notified of click we just need to forward click events on the button element
 		using the <code>on:click</code> shorthand.
 	</div>
-	'
 </article>
 
 <style>
