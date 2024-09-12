@@ -3,6 +3,14 @@
 	import Incrementer from './Incrementer.svelte';
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
+	import { time } from './stores';
+
+	const formatter = new Intl.DateTimeFormat('en', {
+		hour12: true,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	});
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -63,6 +71,22 @@
 			Auto-subscription only works with store variables that are declared (or imported) at the
 			top-level scope of a component.
 		</p>
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>Readable stores</b>
+	</div>
+	<br />
+
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Not all stores should be writable by whoever has a reference to them. For example, you might
+		have a store representing the mouse position or the user's geolocation, and it doesn't make
+		sense to be able to set those values from 'outside'. For those cases, we have readable stores.
+	</div>
+	<br />
+	<div class="prose text-3xl leading-relaxed">
+		The time is {formatter.format($time)}
 	</div>
 </article>
 
