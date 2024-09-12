@@ -54,7 +54,7 @@
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
 	<h1 class="mb-4 text-3xl font-bold">Lifecycles</h1>
 	<p class="mb-6 text-gray-500">
-		<span class="mr-4">11/09/2024</span>
+		<span class="mr-4">12/09/2024</span>
 		by <span class="prose italic">zavos.dev</span>
 	</p>
 
@@ -115,6 +115,11 @@
 			the validation result.
 		</p>
 	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">tick</div>
+	The<code>tick</code> function is unlike other lifecycle functions in that you can call it any time,
+	not just when the component first initialises. It returns a promise that resolves as soon as any pending
+	state changes have been applied to the DOM (or immediately, if there are no pending state changes).
 </article>
 
 <style>
