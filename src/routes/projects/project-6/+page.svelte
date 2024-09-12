@@ -1,6 +1,6 @@
 <script>
 	import { paint } from './gradient.js';
-	import { onMount } from 'svelte';
+	import { beforeUpdate, afterUpdate, onMount } from 'svelte';
 
 	onMount(() => {
 		const canvas = document.querySelector('canvas');
@@ -15,6 +15,40 @@
 			cancelAnimationFrame(frame);
 		};
 	});
+
+	let inputText = '';
+	let validationMessage = '';
+	let message = '';
+	let inputChanged = false;
+
+	// Function to validate input text
+	function validateText(text) {
+		return text.length > 5 ? 'Valid' : 'Too short';
+	}
+
+	// beforeUpdate: runs before the DOM updates
+	beforeUpdate(() => {
+		if (inputChanged) {
+			message = 'beforeUpdate: Input is about to be validated';
+		}
+	});
+
+	// afterUpdate: runs after the DOM updates
+	afterUpdate(() => {
+		if (inputChanged) {
+			setTimeout(() => {
+				validationMessage = validateText(inputText);
+				message = `afterUpdate: Input has been validated. Result: ${validationMessage}`;
+				inputChanged = false;
+			}, 500); // Add a delay to simulate processing and allow time for viewing
+		}
+	});
+
+	// Track changes in the input
+	function handleInput(event) {
+		inputText = event.target.value;
+		inputChanged = true;
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -59,6 +93,28 @@
 		</p>
 	</div>
 	<br />
+	<div class="input-box">
+		<input
+			type="text"
+			value={inputText}
+			on:input={handleInput}
+			placeholder="Enter at least 6 characters"
+		/>
+
+		<p>{validationMessage}</p>
+		<br />
+		<p>{message}</p>
+	</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			Before the DOM updates, the beforeUpdate message appears: "Input is about to be validated."
+		</p>
+		<p>
+			After a 500ms delay, the afterUpdate message appears: "Input has been validated," along with
+			the validation result.
+		</p>
+	</div>
 </article>
 
 <style>
@@ -71,5 +127,16 @@
 		mask-size: 60vmin;
 		-webkit-mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
 		-webkit-mask-size: 60vmin;
+	}
+	.input-box {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	input {
+		padding: 10px;
+		font-size: 16px;
+		width: 250px;
+		margin-bottom: 20px;
 	}
 </style>
