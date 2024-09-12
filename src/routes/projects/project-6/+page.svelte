@@ -43,6 +43,21 @@
 		You can leverage <b>onMount</b> to execute actions that depend on the component being fully rendered
 		in the DOM, such as starting animations or setting up interactive elements.
 	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>beforeUpdate</b> and <b>afterUpdate</b>
+	</div>
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			The script function schedules work to happen immediately before the DOM is updated.
+			afterUpdate is its counterpart, used for running code once the DOM is in sync with your data.
+		</p>
+		<br />
+		<p>
+			Together, they're useful for doing things imperatively that are difficult to achieve in a
+			purely state-driven way, like updating the scroll position of an element.
+		</p>
+	</div>
 </article>
 
 <style>
