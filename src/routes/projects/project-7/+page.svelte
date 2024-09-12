@@ -29,6 +29,27 @@
 	<Incrementer />
 	<Decrementer />
 	<Resetter />
+	<br />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<code>writeable(0)</code>
+		<br />
+		This is a built-in function in Svelte that creates a writable store with an initial value of 0.
+		<br />
+		A writable store is a reactive variable that can be <b>subscribed</b> to and <b>updated</b> from
+		anywhere in your Svelte component tree.
+		<br />
+		When the store's value changes, any components that are subscribed to it will
+		<u>automatically</u> re-render with the new value.
+		<br />
+		<br />
+		<code>subscribe</code> This method allows you to subscribe to the store's value.
+		<br />
+		<code>update</code> This method allows you to update the store's value based on its current
+		value.
+		<br />
+		<code>set</code> This method allows you to directly set the store's value to a new value.
+	</div>
 </article>
 
 <style>
