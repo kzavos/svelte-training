@@ -132,6 +132,16 @@
 		<br />
 		<code>on:click={count2.reset}</code>
 		<br />
+
+		<br />
+		<div class="prose text-3xl font-bold leading-relaxed">
+			<b>Store bindings</b>
+		</div>
+		<br />
+		<div class="prose text-lg leading-relaxed">
+			If a store is writable — i.e. it has a <code>set</code> method — you can bind to its value, just
+			as you can bind to local component state.
+		</div>
 	</div>
 </article>
 
