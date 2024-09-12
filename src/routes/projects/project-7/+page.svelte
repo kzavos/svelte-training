@@ -24,7 +24,11 @@
 		be notified whenever the store value changes.
 	</div>
 	<br />
-	<h1 class="text-3xl">The count is {count_value}</h1>
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>Writable stores</b>
+	</div>
+	<br />
+	<h1 class="text-2xl">The count is {count_value}</h1>
 	<br />
 	<Incrementer />
 	<Decrementer />
