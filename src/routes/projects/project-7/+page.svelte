@@ -3,12 +3,6 @@
 	import Incrementer from './Incrementer.svelte';
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
-
-	let count_value;
-
-	count.subscribe((value) => {
-		count_value = value;
-	});
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -28,7 +22,7 @@
 		<b>Writable stores</b>
 	</div>
 	<br />
-	<h1 class="text-2xl">The count is {count_value}</h1>
+	<h1 class="text-2xl">The count is {$count}</h1>
 	<br />
 	<Incrementer />
 	<Decrementer />
@@ -53,6 +47,22 @@
 		value.
 		<br />
 		<code>set</code> This method allows you to directly set the store's value to a new value.
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>Auto-subscriptions</b>
+	</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The app in the previous example works, but there's a subtle bug — the store is subscribed to,
+		but never unsubscribed. If the component was instantiated and destroyed many times, this would
+		result in a memory leak.
+		<p>Instead, You can reference a store value by prefixing the store name with <code>$:</code></p>
+		<br />
+		<p>
+			Auto-subscription only works with store variables that are declared (or imported) at the
+			top-level scope of a component.
+		</p>
 	</div>
 </article>
 
