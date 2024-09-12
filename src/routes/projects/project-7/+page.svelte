@@ -1,4 +1,14 @@
 <script>
+	import { count } from './stores';
+	import Incrementer from './Incrementer.svelte';
+	import Decrementer from './Decrementer.svelte';
+	import Resetter from './Resetter.svelte';
+
+	let count_value;
+
+	count.subscribe((value) => {
+		count_value = value;
+	});
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -13,6 +23,12 @@
 		A store is simply an object with a <code>subscribe</code> method that allows interested parties to
 		be notified whenever the store value changes.
 	</div>
+	<br />
+	<h1 class="text-3xl">The count is {count_value}</h1>
+	<br />
+	<Incrementer />
+	<Decrementer />
+	<Resetter />
 </article>
 
 <style>
