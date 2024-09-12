@@ -4,6 +4,7 @@
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
 	import { time } from './stores';
+	import { elapsed } from './stores';
 
 	const formatter = new Intl.DateTimeFormat('en', {
 		hour12: true,
@@ -87,6 +88,23 @@
 	<br />
 	<div class="prose text-3xl leading-relaxed">
 		The time is {formatter.format($time)}
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>Derived stores</b>
+	</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		You can create a store whose value is based on the value of one or more other stores with
+		<code>derived</code>. Building on our previous example, we can create a store that derives the
+		time the page has been open
+		<p></p>
+		<br />
+		<p class="prose text-2xl leading-relaxed">
+			This page has been open for
+			{$elapsed}
+			{$elapsed === 1 ? 'second' : 'seconds'}
+		</p>
 	</div>
 </article>
 
