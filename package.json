@@ -39,6 +39,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tailwindcss/typography": "^0.5.15"
+		"@tailwindcss/typography": "^0.5.15",
+		"elizabot": "^0.0.3",
+		"systemjs": "^6.15.1"
 	}
 }
