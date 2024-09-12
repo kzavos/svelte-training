@@ -1,6 +1,7 @@
 <script>
 	import { paint } from './gradient.js';
 	import { beforeUpdate, afterUpdate, onMount } from 'svelte';
+	import { tick } from 'svelte';
 
 	onMount(() => {
 		const canvas = document.querySelector('canvas');
@@ -48,6 +49,25 @@
 	function handleInput(event) {
 		inputText = event.target.value;
 		inputChanged = true;
+	}
+
+	let text = 'Select some text and hit the tab key to toggle uppercase';
+
+	async function handleKeydown(event) {
+		if (event.key !== 'Tab') return;
+
+		event.preventDefault();
+
+		const { selectionStart, selectionEnd, value } = this;
+		const selection = value.slice(selectionStart, selectionEnd);
+
+		const replacement = /[a-z]/.test(selection) ? selection.toUpperCase() : selection.toLowerCase();
+
+		text = value.slice(0, selectionStart) + replacement + value.slice(selectionEnd);
+
+		await tick();
+		this.selectionStart = selectionStart;
+		this.selectionEnd = selectionEnd;
 	}
 </script>
 
@@ -117,9 +137,32 @@
 	</div>
 	<br />
 	<div class="prose text-3xl font-bold leading-relaxed">tick</div>
-	The<code>tick</code> function is unlike other lifecycle functions in that you can call it any time,
-	not just when the component first initialises. It returns a promise that resolves as soon as any pending
-	state changes have been applied to the DOM (or immediately, if there are no pending state changes).
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			The<code>tick</code> function is unlike other lifecycle functions in that you can call it any time,
+			not just when the component first initialises. It returns a promise that resolves as soon as any
+			pending state changes have been applied to the DOM (or immediately, if there are no pending state
+			changes).
+		</p>
+		<br />
+		<p>
+			In Svelte, when you update component state, the framework doesn't immediately update the DOM
+			to optimize performance. <br />Instead, it waits for a brief moment (a "microtask") to see if
+			there are any other changes that need to be applied, including in other components. This
+			batching approach helps avoid unnecessary DOM updates and improves performance.
+		</p>
+	</div>
+	<br />
+	<textarea value={text} on:keydown={handleKeydown}></textarea>
+	<br />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		To ensure that the DOM is updated immediately after the textarea value changes, you can use the
+		<b>tick</b> function from Svelte. The <b>tick</b> function forces Svelte to process any pending
+		state changes and update the DOM.<br /> By adding <code>await tick()</code> after updating the textarea
+		value, you guarantee that the DOM will be updated before the selection is restored, preventing the
+		cursor from jumping to the end.
+	</div>
 </article>
 
 <style>
@@ -143,5 +186,11 @@
 		font-size: 16px;
 		width: 250px;
 		margin-bottom: 20px;
+	}
+
+	textarea {
+		width: 100%;
+		height: 100%;
+		resize: none;
 	}
 </style>
