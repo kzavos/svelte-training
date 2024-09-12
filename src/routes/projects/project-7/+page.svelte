@@ -1,5 +1,5 @@
 <script>
-	import { count } from './stores';
+	import { count, count2 } from './stores';
 	import Incrementer from './Incrementer.svelte';
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
@@ -105,6 +105,34 @@
 			{$elapsed}
 			{$elapsed === 1 ? 'second' : 'seconds'}
 		</p>
+	</div>
+
+	<br />
+	<div class="prose text-3xl font-bold leading-relaxed">
+		<b>Custom stores</b>
+	</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		As long as an object correctly implements the <code>subscribe</code> method, it's a store.
+		Beyond that, anything goes. It's very easy, therefore, to create custom stores with
+		domain-specific logic.
+		<p>
+			For example, the count store from our earlier example could include increment, decrement and
+			reset methods and avoid exposing set and update:
+		</p>
+		<br />
+		<p class="prose text-2xl">The count is {$count2}</p>
+		<br />
+		<button class="btn" on:click={count2.increment}>+</button>
+		<button class="btn" on:click={count2.decrement}>-</button>
+		<button class="btn" on:click={count2.reset}>reset</button>
+		<br />
+		<br />
+		<code>on:click={count2.increment}</code>
+		<br />
+		<code>on:click={count2.decrement}</code>
+		<br />
+		<code>on:click={count2.reset}</code>
 	</div>
 </article>
 
