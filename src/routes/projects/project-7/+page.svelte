@@ -1,10 +1,8 @@
 <script>
-	import { count, count2 } from './stores';
 	import Incrementer from './Incrementer.svelte';
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
-	import { time } from './stores';
-	import { elapsed } from './stores';
+	import { count, count2, time, elapsed } from './stores';
 
 	const formatter = new Intl.DateTimeFormat('en', {
 		hour12: true,
@@ -133,6 +131,7 @@
 		<code>on:click={count2.decrement}</code>
 		<br />
 		<code>on:click={count2.reset}</code>
+		<br />
 	</div>
 </article>
 
