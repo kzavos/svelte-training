@@ -243,10 +243,17 @@
 		<br />
 		<br />
 		Here, for example, we'd like to play the typewriter transition from transition.js whenever the loading
-		message, i.e. i changes. Wrap the element in a key block:
+		message, i.e. i changes. We achieve that by wrapping the <code>p</code> element in a key block.
 		<br />
 	</div>
 	<br />
+	<h1>loading...</h1>
+	<br />
+	{#key i}
+		<p in:typewriter={{ speed: 10 }}>
+			{messages[i] || ''}
+		</p>
+	{/key}
 </article>
 
 <style>
