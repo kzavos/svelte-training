@@ -8,6 +8,8 @@
 	let visible3 = true;
 	let visible4 = true;
 	let visible5 = false;
+	let visible6 = true;
+	let status = 'waiting...';
 
 	function spin(node, { duration }) {
 		return {
@@ -145,6 +147,33 @@
 
 	{#if visible5}
 		<p transition:typewriter>The quick brown fox jumps over the lazy dog</p>
+	{/if}
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold">Transition events</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		It can be useful to know when transitions are beginning and ending. Svelte dispatches events
+		that you can listen to like any other DOM event:
+	</div>
+	<br />
+	<p>status: {status}</p>
+	<br />
+	<label>
+		<input type="checkbox" bind:checked={visible6} />
+		visible
+	</label>
+	<br />
+	{#if visible6}
+		<p
+			transition:fly={{ y: 200, duration: 2000 }}
+			on:introstart={() => (status = 'intro started')}
+			on:outrostart={() => (status = 'outro started')}
+			on:introend={() => (status = 'intro ended')}
+			on:outroend={() => (status = 'outro ended')}
+		>
+			Flies in and out
+		</p>
 	{/if}
 </article>
 
