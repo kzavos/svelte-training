@@ -37,6 +37,11 @@
 			imageSrc: './images/project-images/project-7.png',
 			description: 'Stores',
 			link: '/projects/project-7'
+		},
+		{
+			imageSrc: './images/project-images/project-8.png',
+			description: 'Motion',
+			link: '/projects/project-8'
 		}
 	];
 </script>
