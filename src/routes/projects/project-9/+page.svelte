@@ -4,7 +4,6 @@
 	import { elasticOut } from 'svelte/easing';
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	// import { typewriter } from 'transition.js';
 	import { messages } from './loading-messages.js';
 
 	let visible = true;
@@ -254,6 +253,28 @@
 			{messages[i] || ''}
 		</p>
 	{/key}
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold">Deferred transitions</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		A particularly powerful feature of Svelte's transition engine is the ability to defer
+		transitions, so that they can be coordinated between multiple elements.
+		<br />
+		<br />
+		Take this pair of todo lists, in which toggling a todo sends it to the opposite list. In the real
+		world, objects don't behave like that — instead of disappearing and reappearing in another place,
+		they move through a series of intermediate positions. Using motion can go a long way towards helping
+		users understand what's happening in your app.
+		<br />
+		<br />
+		We can achieve this effect using the crossfade function, as seen in transition.js, which creates
+		a pair of transitions called send and receive. When an element is 'sent', it looks for a corresponding
+		element being 'received', and generates a transition that transforms the element to its counterpart's
+		position and fades it out. When an element is 'received', the reverse happens. If there is no counterpart,
+		the fallback transition is used.
+	</div>
+	<br />
 </article>
 
 <style>
