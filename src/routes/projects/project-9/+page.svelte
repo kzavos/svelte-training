@@ -1,9 +1,29 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import { fly } from 'svelte/transition';
+	import { elasticOut } from 'svelte/easing';
+
 	let visible = true;
 	let visible2 = true;
 	let visible3 = true;
+	let visible4 = true;
+
+	function spin(node, { duration }) {
+		return {
+			duration,
+			css: (t) => {
+				const eased = elasticOut(t);
+
+				return `
+					transform: scale(${eased}) rotate(${eased * 1080}deg);
+					color: hsl(
+						${Math.trunc(t * 360)},
+						${Math.min(100, 1000 * (1 - t))}%,
+						${Math.min(50, 500 * (1 - t))}%
+					);`;
+			}
+		};
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -70,8 +90,27 @@
 	</label>
 	<br />
 	{#if visible3}
-		<p transition in:fly={{ y: 200, duration: 2000 }} out:fade>Flies in and out</p>
+		<p transition in:fly={{ y: 200, duration: 2000 }} out:fade>Flies in and fades out</p>
 	{/if}
+	<br />
+	<div class="prose text-3xl font-bold">Customs CSS animations</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The <code>svelte/transition</code> module has a handful of built-in transitions, but it's very easy
+		to create your own.
+	</div>
+	<br />
+	<label>
+		<input type="checkbox" bind:checked={visible4} />
+		visible
+	</label>
+	<br />
+	{#if visible4}
+		<div in:spin={{ duration: 8000 }} out:fade>
+			<span>transitions!</span>
+		</div>
+	{/if}
+	<br />
 </article>
 
 <style>
