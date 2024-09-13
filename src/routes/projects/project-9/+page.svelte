@@ -7,6 +7,7 @@
 	let visible2 = true;
 	let visible3 = true;
 	let visible4 = true;
+	let visible5 = false;
 
 	function spin(node, { duration }) {
 		return {
@@ -21,6 +22,25 @@
 						${Math.min(100, 1000 * (1 - t))}%,
 						${Math.min(50, 500 * (1 - t))}%
 					);`;
+			}
+		};
+	}
+
+	function typewriter(node, { speed = 3 }) {
+		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
+
+		if (!valid) {
+			throw new Error(`This transition only works on elemenets with a single text node child`);
+		}
+
+		const text = node.textContent;
+		const duration = text.length / (speed * 0.01);
+
+		return {
+			duration,
+			tick: (t) => {
+				const i = Math.trunc(text.length * t);
+				node.textContent = text.slice(0, i);
 			}
 		};
 	}
@@ -111,6 +131,21 @@
 		</div>
 	{/if}
 	<br />
+	<div class="prose text-3xl font-bold">Customs JS animations</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		While you should generally use CSS for transitions as much as possible, there are some effects
+		that can't be achieved without JavaScript, such as a typewriter effect:
+	</div>
+	<br />
+	<label>
+		<input type="checkbox" bind:checked={visible5} />
+		visible
+	</label>
+
+	{#if visible5}
+		<p transition:typewriter>The quick brown fox jumps over the lazy dog</p>
+	{/if}
 </article>
 
 <style>
