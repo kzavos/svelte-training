@@ -23,7 +23,7 @@
 		<h6 class="footer-title">Social</h6>
 		<div class="grid grid-flow-col gap-4">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<a>
+			<a href="https://www.x.com">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -37,7 +37,7 @@
 				</svg>
 			</a>
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<a>
+			<a href="https://www.youtube.com">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
