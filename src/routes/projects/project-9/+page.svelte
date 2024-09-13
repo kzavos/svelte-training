@@ -14,7 +14,7 @@
 	</p>
 
 	<div class="prose text-lg leading-relaxed">
-		Hello there, fellow Svelte enthusiasts! <br />oday, we'll dive into the world of Svelte
+		Hello there, fellow Svelte enthusiasts! <br />Today, we'll dive into the world of Svelte
 		transitions, exploring how to create smooth and engaging animations in your web applications.<br
 		/>
 	</div>
