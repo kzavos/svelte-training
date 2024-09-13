@@ -5,6 +5,7 @@
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	// import { typewriter } from 'transition.js';
+	import { messages } from './loading-messages.js';
 
 	let visible = true;
 	let visible2 = true;
@@ -14,8 +15,19 @@
 	let visible6 = true;
 	let status = 'waiting...';
 
+	onMount(() => {
+		const interval = setInterval(() => {
+			i += 1;
+			i %= messages.length;
+		}, 2500);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
+
 	let showItems = true;
-	let i = 5;
+	let i = -1;
 	let items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
 	function spin(node, { duration }) {
@@ -215,6 +227,24 @@
 			</div>
 		{/each}
 	{/if}
+	<br />
+	<p class="font-thin">
+		The list is buggy because <code>i</code> is set to -1. That's on purpose.
+	</p>
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold">Key blocks</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Key blocks destroy and recreate their contents when the value of an expression changes. This is
+		useful if you want an element to play its transition whenever a value changes instead of only
+		when the element enters or leaves the DOM.
+		<br />
+		<br />
+		Here, for example, we'd like to play the typewriter transition from transition.js whenever the loading
+		message, i.e. i changes. Wrap the element in a key block:
+		<br />
+	</div>
 	<br />
 </article>
 
