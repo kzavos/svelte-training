@@ -3,6 +3,8 @@
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 	import { slide } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	// import { typewriter } from 'transition.js';
 
 	let visible = true;
 	let visible2 = true;
