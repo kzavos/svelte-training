@@ -1,6 +1,12 @@
 <script>
-	import { writable } from 'svelte/store';
-	const progress = writable(0);
+	// import { writable } from 'svelte/store';
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
+
+	const progress = tweened(0, {
+		duration: 400,
+		easing: cubicOut
+	});
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -22,7 +28,7 @@
 		different states or values of an object over time.
 	</div>
 	<br />
-	<progress class="w-full rounded-full bg-gray-200 dark:bg-gray-700" value={$progress}></progress>
+	<progress class="w-full rounded-full bg-gray-200 dark:bg-gray-700 accent-orange-600" value={$progress}></progress>
 	<br />
 	<br />
 	<button class="btn" on:click={() => progress.set(0)}>0%</button>
