@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition';
 	let visible = true;
 	let visible2 = true;
+	let visible3 = true;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -54,6 +55,23 @@
 		<p transition:fly={{ y: 200, duration: 2000 }}>This text is now visible</p>
 	{/if}
 	<br />
+	<div class="prose text-3xl font-bold">
+		<h1>In and Out</h1>
+		<br />
+	</div>
+	<div class="prose text-lg leading-relaxed">
+		Instead of the <code>transition</code> directive, an element can have an <code>in</code> or an
+		<code>out</code> directive, or both togethe
+	</div>
+	<br />
+	<label>
+		<input type="checkbox" bind:checked={visible3} />
+		visible
+	</label>
+	<br />
+	{#if visible3}
+		<p transition in:fly={{ y: 200, duration: 2000 }} out:fade>Flies in and out</p>
+	{/if}
 </article>
 
 <style>
