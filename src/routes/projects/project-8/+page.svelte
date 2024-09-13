@@ -1,5 +1,6 @@
 <script>
-	// import { writable } from 'svelte/store';
+	// Tween
+
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 
@@ -7,6 +8,32 @@
 		duration: 400,
 		easing: cubicOut
 	});
+
+	// Spring
+	import { writable } from 'svelte/store';
+
+	import { spring } from 'svelte/motion';
+
+	let coords = spring(
+		{ x: 50, y: 50 },
+		{
+			stiffness: 0.1,
+			damping: 0.25
+		}
+	);
+	let size = spring(10);
+
+	const containerRef = writable(null);
+	const containerWidth = 400; // Adjust to your desired container width
+	const containerHeight = 300; // Adjust to your desired container height
+
+	function handleMouseMove(event) {
+		const containerRect = containerRef.get().getBoundingClientRect();
+		const { clientX, clientY } = event;
+		const newX = Math.max(0, Math.min(clientX - containerRect.left, containerWidth - size.get()));
+		const newY = Math.max(0, Math.min(clientY - containerRect.top, containerHeight - size.get()));
+		coords.set({ x: newX, y: newY });
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -44,8 +71,24 @@
 		The spring function is an alternative to tweened that often works better for values that are
 		frequently changing.
 	</div>
+	<br />
+	<div bind:this={$containerRef} class="spring-container">
+		<svg
+			width={containerWidth}
+			height={containerHeight}
+			on:mousemove={handleMouseMove}
+			on:mousedown={() => size.set(30)}
+			on:mouseup={() => size.set(10)}
+			role="presentation"
+		>
+			<circle cx={$coords.x} cy={$coords.y} r={$size} />
+		</svg>
+	</div>
 </article>
 
 <style>
-	/* styling here */
+	.spring-container {
+		width: 150px;
+		height: 150px;
+	}
 </style>
