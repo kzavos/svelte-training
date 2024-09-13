@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
 
 	let visible = true;
 	let visible2 = true;
@@ -10,6 +11,10 @@
 	let visible5 = false;
 	let visible6 = true;
 	let status = 'waiting...';
+
+	let showItems = true;
+	let i = 5;
+	let items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
 	function spin(node, { duration }) {
 		return {
@@ -175,6 +180,40 @@
 			Flies in and out
 		</p>
 	{/if}
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold">Global transitions</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Ordinarily, transitions will only play on elements when their direct containing block is added
+		or destroyed. In the example here, toggling the visibility of the entire list does not apply
+		transitions to individual list elements.
+		<br />
+		<br />
+		Instead, we'd like transitions to not only play when individual items are added and removed with
+		the slider but also when we toggle the checkbox.
+		<br />
+		<br />We can achieve this with a global transition, which plays when any block containing the
+		transitions is added or removed:
+	</div>
+	<br />
+	<label>
+		<input type="checkbox" bind:checked={showItems} />
+		show list
+	</label>
+
+	<label>
+		<input type="range" bind:value={i} max="10" />
+	</label>
+	<br />
+	{#if showItems}
+		{#each items.slice(0, i) as item}
+			<div transition:slide|global>
+				{item}
+			</div>
+		{/each}
+	{/if}
+	<br />
 </article>
 
 <style>
