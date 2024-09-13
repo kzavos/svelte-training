@@ -32,3 +32,7 @@ function createCount() {
 	};
 }
 export const count2 = createCount();
+
+export const name = writable('world')
+
+export const greeting = derived(name, ($name) => `Hello ${$name}`)

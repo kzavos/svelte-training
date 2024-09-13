@@ -10,6 +10,8 @@
 		minute: '2-digit',
 		second: '2-digit'
 	});
+
+	import { name, greeting } from './stores';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -143,6 +145,11 @@
 			as you can bind to local component state.
 		</div>
 	</div>
+	<br />
+	<h1 class="prose text-3xl">{$greeting}</h1>
+	<br />
+	<input bind:value={$name} />
+	<button class="btn" on:click={() => ($name += `!`)}>Add an exclamation mark!</button>
 </article>
 
 <style>
