@@ -28,7 +28,7 @@
 		different states or values of an object over time.
 	</div>
 	<br />
-	<progress class="w-full rounded-full bg-gray-200 dark:bg-gray-700 accent-orange-600" value={$progress}></progress>
+	<progress class="w-full rounded-full bg-gray-200 dark:bg-gray-700" value={$progress}></progress>
 	<br />
 	<br />
 	<button class="btn" on:click={() => progress.set(0)}>0%</button>
@@ -36,6 +36,14 @@
 	<button class="btn" on:click={() => progress.set(0.5)}>50%</button>
 	<button class="btn" on:click={() => progress.set(0.75)}>75%</button>
 	<button class="btn" on:click={() => progress.set(1)}>100%</button>
+	<br />
+	<br />
+	<h1 class="prose text-3xl font-bold">Springs</h1>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The spring function is an alternative to tweened that often works better for values that are
+		frequently changing.
+	</div>
 </article>
 
 <style>
