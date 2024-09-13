@@ -1,4 +1,4 @@
-<footer class="footer bg-neutral text-neutral-content p-10">
+<footer class="footer bg-neutral p-10 text-neutral-content">
 	<aside>
 		<svg
 			width="50"
@@ -14,9 +14,9 @@
 			></path>
 		</svg>
 		<p>
-			Zavos Industries Ltd.
+			Copyright © 2024 zavos.dev | All rights reserved.
 			<br />
-			Providing reliable tech since 2018
+			Crafting digital solutions.
 		</p>
 	</aside>
 	<nav>
