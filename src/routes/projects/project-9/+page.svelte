@@ -229,7 +229,8 @@
 	{/if}
 	<br />
 	<p class="font-thin">
-		The list is buggy because <code>i</code> is set to -1. That's on purpose.
+		The list is buggy and acts like a typewrite because <code>i</code> is set to -1 and also because of intefering functions.
+		That's on purpose.
 	</p>
 	<br />
 	<br />
