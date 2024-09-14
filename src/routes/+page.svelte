@@ -52,6 +52,11 @@
 			imageSrc: './images/project-images/project-10.png',
 			description: 'Actions',
 			link: '/projects/project-10'
+		},
+		{
+			imageSrc: './images/project-images/project-11.png',
+			description: 'Advanced bindings',
+			link: '/projects/project-11'
 		}
 	];
 </script>
