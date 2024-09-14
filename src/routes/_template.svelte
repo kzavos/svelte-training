@@ -11,7 +11,11 @@
 	<div class="prose text-lg leading-relaxed">
 		<p>Hello there, fellow Svelte enthusiasts!</p>
 		<br />
-		<p>Today, we're diving ....</p>
+		<p>
+			Today, we're diving into actions. Actions are element-level lifecycle functions. They're
+			useful for things like interfacing with third-party libraries, lazy-loaded images, tooltips,
+			adding custom event handlers.
+		</p>
 		<br />
 	</div>
 </article>
