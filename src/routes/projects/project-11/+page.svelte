@@ -1,5 +1,6 @@
 <script>
 	let html = '<p>Write some text!</p>';
+	let pre = `<pre></pre>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -20,10 +21,21 @@
 	<br />
 	<div class="prose text-3xl font-bold">Contenteditable bindings</div>
 	<br />
-	<div contenteditable></div>
-	<pre>{html}</pre>
+	<div bind:innerHTML={html} contenteditable></div>
+	<br />
+	<code><pre>{html}</pre></code>
+	<br />
+	<div class="text-lg font-light italic">Note to self:</div>
+	<div class="text-lg font-light">
+		You can use <code>{pre}</code> tags to showcase html that you have included in the script section.
+	</div>
 </article>
 
 <style>
 	/* styling here */
+	[contenteditable] {
+		padding: 0.5em;
+		border: 1px solid #eee;
+		border-radius: 4px;
+	}
 </style>
