@@ -27,7 +27,9 @@
 	<br />
 	<div class="text-lg font-light italic">Note to self:</div>
 	<div class="text-lg font-light">
-		You can use <code>{pre}</code> tags to showcase html that you have included in the script section.
+		You can use <code>{pre}</code> tags to showcase html that you have included in the script
+		section.
+		<br /> By using <code>pre</code> the text preserves both spaces and line breaks.
 	</div>
 </article>
 
