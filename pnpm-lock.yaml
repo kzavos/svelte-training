@@ -17,6 +17,9 @@ importers:
       systemjs:
         specifier: ^6.15.1
         version: 6.15.1
+      tippy.js:
+        specifier: ^6.3.7
+        version: 6.3.7
     devDependencies:
       '@magidoc/plugin-svelte-marked':
         specifier: ^5.0.3
@@ -1490,6 +1493,9 @@ packages:
   tiny-glob@0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
 
+  tippy.js@6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -2868,6 +2874,10 @@ snapshots:
     dependencies:
       globalyzer: 0.1.0
       globrex: 0.1.2
+
+  tippy.js@6.3.7:
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   to-regex-range@5.0.1:
     dependencies:
