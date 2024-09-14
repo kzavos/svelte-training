@@ -1,4 +1,5 @@
 <script>
+	let html = '<p>Write some text!</p>';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -19,6 +20,8 @@
 	<br />
 	<div class="prose text-3xl font-bold">Contenteditable bindings</div>
 	<br />
+	<div contenteditable></div>
+	<pre>{html}</pre>
 </article>
 
 <style>
