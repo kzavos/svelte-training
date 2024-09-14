@@ -2,7 +2,7 @@
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
-	<h1 class="mb-4 text-3xl font-bold">CHANGE TITLE</h1>
+	<h1 class="mb-4 text-3xl font-bold">Actions</h1>
 	<p class="mb-6 text-gray-500">
 		<span class="mr-4">14/09/2024</span>
 		by <span class="prose italic">zavos.dev</span>
