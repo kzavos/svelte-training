@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@tailwindcss/typography": "^0.5.15",
 		"elizabot": "^0.0.3",
-		"systemjs": "^6.15.1"
+		"systemjs": "^6.15.1",
+		"tippy.js": "^6.3.7"
 	}
 }

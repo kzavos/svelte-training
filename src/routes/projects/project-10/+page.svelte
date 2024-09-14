@@ -2,6 +2,25 @@
 	function autoFocus(node) {
 		node.focus();
 	}
+
+	import tippy from 'tippy.js';
+	import 'tippy.js/dist/tippy.css';
+	import 'tippy.js/themes/material.css';
+
+	let content = 'This text transfers!';
+
+	function tooltip(node, options) {
+		const tooltip = tippy(node, options);
+
+		return {
+			update(options) {
+				tooltip.setProps(options);
+			},
+			destroy() {
+				tooltip.destroy();
+			}
+		};
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -32,6 +51,20 @@
 	</div>
 	<br />
 	<input class=" italic" placeholder="You are typing here" type="text" use:autoFocus />
+	<br />
+	<br />
+	<div class="prose text-3xl font-bold">Adding parameters</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Like transitions and animations, an action can take an argument, which the action function will
+		be called with alongside the element it belongs to.
+	</div>
+	<br />
+	<div class="flex gap-2">
+		<input class=" text-center" bind:value={content} />
+		<br />
+		<button class="btn" use:tooltip={{ content, theme: 'material' }}> Hover me </button>
+	</div>
 </article>
 
 <style>
