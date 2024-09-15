@@ -1,6 +1,25 @@
 <script>
 	let html = '<p>Write some text!</p>';
 	let pre = `<pre></pre>`;
+
+	let todos = [
+		{ done: false, text: `Finish svelte tutorial` },
+		{ done: false, text: `Build an app` },
+		{ done: false, text: `Go scuba diving` }
+	];
+
+	function add() {
+		todos = todos.concat({
+			done: false,
+			text: ``
+		});
+	}
+
+	function clear() {
+		todos = todos.filter((t) => !t.done);
+	}
+
+	$: remaining = todos.filter((t) => !t.done).length;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -31,6 +50,9 @@
 		section.
 		<br /> By using <code>pre</code> the text preserves both spaces and line breaks.
 	</div>
+	<br />
+	<div class="prose text-3xl font-bold">Each blog bindings</div>
+	<br />
 </article>
 
 <style>
