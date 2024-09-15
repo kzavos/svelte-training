@@ -53,6 +53,31 @@
 	<br />
 	<div class="prose text-3xl font-bold">Each blog bindings</div>
 	<br />
+	<div class="prose text-lg leading-relaxed">
+		You can even bind to properties inside an each block.
+	</div>
+	<br />
+	<div class="centered">
+		<h1>To-do list</h1>
+
+		<ul class="todos flex flex-col gap-2">
+			<br />
+
+			{#each todos as todo}
+				<li class:done={todo.done} class="flex gap-2">
+					<input type="checkbox" bind:checked={todo.done} />
+
+					<input type="text" placeholder="What needs to be done?" bind:value={todo.text} />
+				</li>
+			{/each}
+		</ul>
+		<br />
+		<p>{remaining} remaining</p>
+		<br />
+		<button class="btn" on:click={add}> Add new </button>
+
+		<button class="btn" on:click={clear}> Clear completed </button>
+	</div>
 </article>
 
 <style>
@@ -61,5 +86,25 @@
 		padding: 0.5em;
 		border: 1px solid #eee;
 		border-radius: 4px;
+	}
+
+	.centered {
+		max-width: 20em;
+		margin: 0 auto;
+	}
+
+	.done {
+		opacity: 0.4;
+	}
+
+	li {
+		display: flex;
+	}
+
+	input[type='text'] {
+		flex: 1;
+		padding: 0.5em;
+		margin: -0.2em 0;
+		border: none;
 	}
 </style>
