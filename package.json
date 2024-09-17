@@ -42,8 +42,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@primer/components": "^33.1.0",
-		"@primer/css": "^21.3.6",
 		"elizabot": "^0.0.3",
 		"systemjs": "^6.15.1",
 		"tippy.js": "^6.3.7"
