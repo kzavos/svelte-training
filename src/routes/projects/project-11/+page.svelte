@@ -38,6 +38,16 @@
 			inputElement.focus();
 		}
 	}
+
+	// Component bindings
+	import Keypad from './Keypad.svelte';
+
+	let pin;
+	$: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
+
+	function handleSubmit() {
+		alert(`submitted ${pin}`);
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -146,6 +156,20 @@
 		/>
 		<button class="btn" on:click={focusInput}>Focus the input</button>
 	</div>
+	<br />
+	<div class="prose text-3xl">Component bindings</div>
+	<br />
+	<div class="leading-relaxes prose text-lg">
+		Just as you can bind to properties of DOM elements, you can bind to component props. For
+		example, we can bind to the <code>value</code> prop of this <code>Keypad</code> component as though
+		it were a for element
+	</div>
+	<br />
+	<h1 style="opacity: {pin ? 1 : 0.4}">
+		{view}
+	</h1>
+	<br />
+	<Keypad bind:value={pin} on:submit={handleSubmit} />
 </article>
 
 <style>
