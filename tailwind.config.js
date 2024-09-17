@@ -7,9 +7,7 @@ export default {
 	  extend: {},
 	},
 	plugins: [],
-	plugins: [require('daisyui'),    
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/typography'),],
+	plugins: [require('daisyui'),    ],
 	daisyui: {
 			themes: ["dark"],
 		  },
