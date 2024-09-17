@@ -20,6 +20,13 @@
 	}
 
 	$: remaining = todos.filter((t) => !t.done).length;
+
+	// Dimensions
+
+	let w;
+	let h;
+	let size = 42;
+	let text = 'edit this text';
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -40,7 +47,7 @@
 	<br />
 	<div class="prose text-3xl font-bold">Contenteditable bindings</div>
 	<br />
-	<div bind:innerHTML={html} contenteditable></div>
+	<div class="border border-r-2 p-5" bind:innerHTML={html} contenteditable></div>
 	<br />
 	<code><pre>{html}</pre></code>
 	<br />
@@ -78,16 +85,44 @@
 
 		<button class="btn" on:click={clear}> Clear completed </button>
 	</div>
+
+	<br />
+	<div class="prose text-3xl font-bold">Dimensions</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			Every block-level element has clientWidth, clientHeight, offsetWidth and offsetHeight bindings
+		</p>
+	</div>
+	<br />
+	<label>
+		<input type="range" bind:value={size} min="10" max="100" />
+		font size ({size}px)
+	</label>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div bind:clientWidth={w} bind:clientHeight={h} class="text-area">
+		<span style="font-size: {size}px" contenteditable>{text}</span>
+		<span class="size">{w} x {h}px</span>
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold">this</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			Certainly! In Svelte, this is used within class-based components, where it refers to the
+			instance of the component. This is somewhat different from the way this works in traditional
+			JavaScript classes or functions.
+		</p>
+	</div>
+	<br />
 </article>
 
 <style>
 	/* styling here */
-	[contenteditable] {
-		padding: 0.5em;
-		border: 1px solid #eee;
-		border-radius: 4px;
-	}
-
 	.centered {
 		max-width: 20em;
 		margin: 0 auto;
@@ -106,5 +141,24 @@
 		padding: 0.5em;
 		margin: -0.2em 0;
 		border: none;
+	}
+
+	.text-area {
+		position: relative;
+		display: inline-block;
+		padding: 0.5rem;
+		background: hsla(15, 100%, 50%, 0.1);
+		border: 1px solid hsl(15, 100%, 50%);
+	}
+
+	.size {
+		position: absolute;
+		right: -1px;
+		bottom: -1.4em;
+		line-height: 1;
+		background: hsl(15, 100%, 50%);
+		color: white;
+		padding: 0.2em 0.5em;
+		white-space: pre;
 	}
 </style>
