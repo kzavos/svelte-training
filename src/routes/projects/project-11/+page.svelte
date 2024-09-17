@@ -27,6 +27,17 @@
 	let h;
 	let size = 42;
 	let text = 'edit this text';
+
+	// this
+
+	let inputElement; // Variable to hold the DOM element reference
+
+	function focusInput() {
+		// Use the bound reference to access the DOM element
+		if (inputElement) {
+			inputElement.focus();
+		}
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -109,16 +120,32 @@
 		<span class="size">{w} x {h}px</span>
 	</div>
 	<br />
+	<br />
+	<br />
 	<div class="prose text-3xl font-bold">this</div>
 	<br />
 	<div class="prose text-lg leading-relaxed">
 		<p>
-			Certainly! In Svelte, this is used within class-based components, where it refers to the
-			instance of the component. This is somewhat different from the way this works in traditional
-			JavaScript classes or functions.
+			The <code>bind:this</code> directive in Svelte is used to bind a DOM element to a variable in your
+			component's script. This allows you to interact directly with the DOM element, such as accessing
+			its properties or calling its methods.
+		</p>
+		<br />
+		<p class="italic">
+			Note to self: You can use <code>alt + shift + w</code> to wrap something with your desired tags
+			quickly
 		</p>
 	</div>
 	<br />
+	<div>
+		<input
+			class="w-full max-w-xs"
+			bind:this={inputElement}
+			type="text"
+			placeholder="Click the button to focus me"
+		/>
+		<button class="btn" on:click={focusInput}>Focus the input</button>
+	</div>
 </article>
 
 <style>
