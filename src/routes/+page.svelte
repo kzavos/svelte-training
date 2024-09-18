@@ -57,6 +57,11 @@
 			imageSrc: './images/project-images/project-11.png',
 			description: 'Advanced bindings',
 			link: '/projects/project-11'
+		},
+		{
+			imageSrc: './images/project-images/project-12.png',
+			description: 'Classes and styles',
+			link: '/projects/project-12'
 		}
 	];
 </script>
