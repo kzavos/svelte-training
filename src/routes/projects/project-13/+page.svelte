@@ -1,9 +1,17 @@
 <script>
+	// Card example
+	import Card from './Card.svelte';
+
 	let slot = `<slot>`;
 	let cardsvelte = `
 	<div class="card">
 		<slot></slot>
 	</div>`;
+	let cardexample = `
+	<Card>
+		<span>Patrick BATEMAN</span>
+		<span>Vice President</span>
+	</Card>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -20,10 +28,10 @@
 			Component composition in Svelte allows developers to build reusable and flexible components
 			using slots.
 			<br />
-			By utilizing slots, you can create a parent component that serves as a wrapper, enabling child components
-			to fill specific areas with custom content. This approach promotes a clear separation of concerns
-			and enhances maintainability, as you can easily swap or modify the child components without altering
-			the parent structure.
+			By utilizing slots, you can create a parent component that serves as a wrapper, enabling child
+			components to fill specific areas with custom content. This approach promotes a clear separation
+			of concerns and enhances maintainability, as you can easily swap or modify the child components
+			without altering the parent structure.
 			<br />
 			Overall, component composition in Svelte fosters a modular architecture, making it easier to manage
 			complex applications.
@@ -34,8 +42,8 @@
 	<br />
 	<div class="prose text-lg leading-relaxed">
 		<p>
-			Just like elements can have children so can components. Before a component can accept
-			children, though, it needs to know where to put them.
+			Just like elements can have children so can components.
+			<br />Before a component can accept children, though, it needs to know where to put them.
 			<br />
 			We do this with the <code>{slot}</code> element.
 		</p>
@@ -46,6 +54,18 @@
 		<h2 class="mb-4 text-lg font-semibold">Card.svelte</h2>
 		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
 			{cardsvelte}
+		</pre>
+	</div>
+	<br />
+	<Card>
+		<span>Patrick BATEMAN</span>
+		<span>Vice President</span>
+	</Card>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{cardexample}
 		</pre>
 	</div>
 </article>
