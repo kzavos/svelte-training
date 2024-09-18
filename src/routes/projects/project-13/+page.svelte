@@ -83,7 +83,7 @@
 	let:item={row}
 >`;
 	let note = `
-(As in other contexts, {item} is shorthand for item={item}.)
+As in other contexts, {item} is shorthand for item={item}.
 	`;
 </script>
 
