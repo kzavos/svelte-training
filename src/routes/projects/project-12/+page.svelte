@@ -115,8 +115,8 @@
 	</div>
 
 	<div class="prose text-lg">
-		Inside Box.svelte, change <code>background-color</code> to <code>var(--color, #ddd);</code> so it
-		can be determined by a Customs CSS property.
+		Inside the child's component code we change <code>background-color</code> to
+		<code>var(--color, #ddd);</code> so it can be determined by a Customs CSS property.
 	</div>
 </article>
 
