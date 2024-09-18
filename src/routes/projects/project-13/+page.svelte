@@ -12,6 +12,35 @@
 		<span>Patrick BATEMAN</span>
 		<span>Vice President</span>
 	</Card>`;
+
+	// Second
+	let secondcard = `
+<div class="card">
+	<header>
+		<slot name="telephone" />
+		<slot name="company" />
+	</header>
+
+	<slot />
+		
+	<footer>
+		<slot name="address" />
+	</footer>
+</div>`;
+	let secondapp = `
+<Card>
+	<span>Patrick BATEMAN</span>
+	<span>Vice President</span>
+
+	<span slot="telephone">212 555 6342</span>
+
+	<span slot="company">
+		Pierce &amp; Pierce
+		<small>Mergers and Aquisitions</small>
+	</span>
+		
+	<span slot="address">358 Exchange Place, New York, N.Y. 10099 fax 212 555 6390 telex 10 4534</span>
+</Card>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -88,6 +117,20 @@
 			<br />Sometimes you will need more control over placement. In those cases, we can use named
 			slots.
 		</p>
+	</div>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">Card.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{secondcard}
+		</pre>
+	</div>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{secondapp}
+		</pre>
 	</div>
 	<br />
 </article>
