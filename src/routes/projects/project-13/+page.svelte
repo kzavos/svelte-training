@@ -70,7 +70,21 @@
 	import FilterableList from './FilterableList.svelte';
 	import { colors } from './colors.js';
 
-	let row = colors[0];
+	let forthlist = `
+<div class="content">
+	{#each data.filter(matches) as item}
+		<slot {item}></slot>
+	{/each}
+</div>`;
+	let forth = `
+<FilterableList
+	data={colors}
+	field="name"
+	let:item={row}
+>`;
+	let note = `
+(As in other contexts, {item} is shorthand for item={item}.)
+	`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -183,8 +197,12 @@
 	<br />
 	<div class="prose text-3xl">Slot props</div>
 	<br />
+	<div class="prose text-lg leading-relaxed">
+		Components can pass data back to their slotted content via slot props.
+	</div>
+	<br />
 	<div class="colors-container">
-		<FilterableList data={colors} field="name">
+		<FilterableList data={colors} field="name" let:item={row}>
 			<header slot="header" class="row">
 				<span class="color"></span>
 				<span class="name">name</span>
@@ -202,17 +220,35 @@
 			</div>
 		</FilterableList>
 	</div>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">FilterableList.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{forthlist}
+		</pre>
+	</div>
+	<br />
+	{note}
+	<br />
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{forth}
+		</pre>
+	</div>
+	<br />
 </article>
 
 <style>
 	/* styling here */
 	.colors-container {
 		max-height: 400px; /* Set a max height for scrolling */
+		height: 400px;
 		overflow-y: auto; /* Enable vertical scrolling */
 		border: 1px solid #ccc; /* Optional border for the container */
 		border-radius: 8px; /* Rounded corners */
 		padding: 1em; /* Padding for spacing */
-		/* background-color: #f9f9f9; Light background */
 	}
 	.row {
 		display: grid;
