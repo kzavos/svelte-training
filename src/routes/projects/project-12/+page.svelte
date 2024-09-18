@@ -19,6 +19,8 @@
 	style:--bg-2="black"
 	style:--bg-3="goldenrod"
 	on:click={() => flipped = !flipped}>`;
+	let html4 = `
+	<Box --color="red">`;
 
 	// Box example
 	import Box from './Box.svelte';
@@ -104,19 +106,29 @@
 	<br />
 	<div class="prose text-lg leading-relaxed">
 		Often, you need to influence the styles inside a child component. Perhaps we want to make these
-		boxes red, green and blue.
+		boxes red, purple and cyan.
 	</div>
 	<br />
 
 	<div class="boxes">
-		<Box />
-		<Box />
-		<Box />
+		<Box --color="red" />
+		<Box --color="purple" />
+		<Box --color="cyan" />
 	</div>
 
 	<div class="prose text-lg">
-		Inside the child's component code we change <code>background-color</code> to
-		<code>var(--color, #ddd);</code> so it can be determined by a Customs CSS property.
+		<p>
+			Inside the child's component code we change <code>background-color</code> to
+			<code>var(--color, #ddd);</code> so it can be determined by a <b>Custom CSS property</b>.
+		</p>
+		<br />
+		<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+			<h2 class="mb-4 text-lg font-semibold">
+				And now we can specify the desired color of our component inline using
+				<br /> <code>--color="red"</code>
+				<pre>{html4}</pre>
+			</h2>
+		</div>
 	</div>
 </article>
 
