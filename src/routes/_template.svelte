@@ -20,6 +20,16 @@
 	<br />
 	<div class="prose text-3xl font-bold">Title</div>
 	<br />
+
+	<!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">Your HTML Code</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+		  &lt;div class="example"&gt;
+			&lt;p&gt;This is an example paragraph.&lt;/p&gt;
+		  &lt;/div&gt;
+		</pre>
+	</div>
 </article>
 
 <style>
