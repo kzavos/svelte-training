@@ -62,6 +62,11 @@
 			imageSrc: './images/project-images/project-12.png',
 			description: 'Classes and styles',
 			link: '/projects/project-12'
+		},
+		{
+			imageSrc: './images/project-images/project-13.png',
+			description: 'Component composition',
+			link: '/projects/project-13'
 		}
 	];
 </script>
