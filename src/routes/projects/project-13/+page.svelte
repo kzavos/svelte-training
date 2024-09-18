@@ -65,6 +65,12 @@
 		</slot>
 	</footer>
 </div>`;
+
+	// forth
+	import FilterableList from './FilterableList.svelte';
+	import { colors } from './colors.js';
+
+	let row = colors[0];
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -175,8 +181,85 @@
 		</pre>
 	</div>
 	<br />
+	<div class="prose text-3xl">Slot props</div>
+	<br />
+	<div class="colors-container">
+		<FilterableList data={colors} field="name">
+			<header slot="header" class="row">
+				<span class="color"></span>
+				<span class="name">name</span>
+				<span class="hex">hex</span>
+				<span class="rgb">rgb</span>
+				<span class="hsl">hsl</span>
+			</header>
+
+			<div class="row">
+				<span class="color" style="background-color: {row.hex}"></span>
+				<span class="name">{row.name}</span>
+				<span class="hex">{row.hex}</span>
+				<span class="rgb">{row.rgb}</span>
+				<span class="hsl">{row.hsl}</span>
+			</div>
+		</FilterableList>
+	</div>
 </article>
 
 <style>
 	/* styling here */
+	.colors-container {
+		max-height: 400px; /* Set a max height for scrolling */
+		overflow-y: auto; /* Enable vertical scrolling */
+		border: 1px solid #ccc; /* Optional border for the container */
+		border-radius: 8px; /* Rounded corners */
+		padding: 1em; /* Padding for spacing */
+		/* background-color: #f9f9f9; Light background */
+	}
+	.row {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 2em 4fr 3fr;
+		gap: 3em;
+		padding: 0.1em;
+		background: var(--bg-1);
+		border-radius: 0.2em;
+	}
+
+	header {
+		font-weight: bold;
+	}
+
+	.row:not(header):hover {
+		background: var(--bg-2);
+	}
+
+	.color {
+		aspect-ratio: 1;
+		height: 100%;
+		border-radius: 0.1em;
+	}
+
+	.rgb,
+	.hsl {
+		display: none;
+	}
+
+	@media (min-width: 40rem) {
+		.row {
+			grid-template-columns: 2em 4fr 3fr 3fr;
+		}
+
+		.rgb {
+			display: block;
+		}
+	}
+
+	@media (min-width: 60rem) {
+		.row {
+			grid-template-columns: 2em 4fr 3fr 3fr 3fr;
+		}
+
+		.hsl {
+			display: block;
+		}
+	}
 </style>
