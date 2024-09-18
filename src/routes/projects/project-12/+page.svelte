@@ -6,6 +6,19 @@
 	class="card"
 	class:flipped={flipped}
 	on:click={() => flipped = !flipped}>`;
+	let html2 = `
+    <button
+	class="card"
+	class:flipped
+	on:click={() => flipped = !flipped}>`;
+	let html3 = `
+    <button
+	class="card"
+	style:transform={flipped ? 'rotateY(0)' : ''}
+	style:--bg-1="palegoldenrod"
+	style:--bg-2="black"
+	style:--bg-3="goldenrod"
+	on:click={() => flipped = !flipped}>`;
 </script>
 
 <article class=" mx-auto max-w-3xl break-words px-4 py-8">
@@ -33,7 +46,15 @@
 
 	<div class="container">
 		Flip the card
-		<button class="card bg-base-200" class:flipped on:click={() => (flipped = !flipped)}>
+		<button
+			class="card bg-base-200"
+			class:flipped
+			on:click={() => (flipped = !flipped)}
+			style:transform={flipped ? 'rotateY(0)' : ''}
+			style:--bg-1="palegoldenrod"
+			style:--bg-2="black"
+			style:--bg-3="goldenrod"
+		>
 			<div class="front">
 				<span class="symbol">♠</span>
 			</div>
@@ -48,6 +69,30 @@
 			This directive means 'add the <code>flipped</code> class whenever <code>flipped</code> is truthy'.
 		</h2>
 		<pre><code>{html1}</code></pre>
+	</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			Often, the name of the class will be the same as the name of the value it depends on.
+			<br />In those cases we can use a shorthand form:
+		</p>
+	</div>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<pre>{html2}</pre>
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold">The style directive</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		As with class, you can write your inline style attributes literally, because Svelte is really
+		just HTML with fancy bits
+	</div>
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">
+            When you have a lot of styles, it can start to look a bit wacky. We can tidy things up by using the <code>style:</code> directive		</h2>
+		<pre><code>{html3}</code></pre>
 	</div>
 </article>
 
@@ -122,7 +167,7 @@
 		width: 100%;
 		height: 100%;
 		/* background-color: var(--bg-2); */
-        /* background-color: white; */
+		/* background-color: white; */
 		/* pattern from https://projects.verou.me/css3patterns/#marrakesh */
 		background-image: radial-gradient(var(--bg-3) 0.9em, transparent 1em),
 			repeating-radial-gradient(
