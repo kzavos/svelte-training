@@ -60,6 +60,16 @@
 	<Card>
 		<span>Patrick BATEMAN</span>
 		<span>Vice President</span>
+		<span slot="telephone">212 555 6342</span>
+
+		<span slot="company">
+			Pierce &amp; Pierce
+			<small>Mergers and Aquisitions</small>
+		</span>
+
+		<span slot="address"
+			>358 Exchange Place, New York, N.Y. 10099 fax 212 555 6390 telex 10 4534</span
+		>
 	</Card>
 	<br />
 	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
@@ -68,6 +78,18 @@
 			{cardexample}
 		</pre>
 	</div>
+	<br />
+	<div class="prose text-3xl leading-relaxed">Named slots</div>
+	<br />
+	<div class="leading relaxed prose text-lg">
+		<p>
+			The previous example contained a default slot, which renders the direct children of a
+			component.
+			<br />Sometimes you will need more control over placement. In those cases, we can use named
+			slots.
+		</p>
+	</div>
+	<br />
 </article>
 
 <style>

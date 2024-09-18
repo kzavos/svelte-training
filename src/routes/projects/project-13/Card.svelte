@@ -1,8 +1,23 @@
 <div class="card border border-r-2">
+	<header>
+		<slot name="telephone"></slot>
+		<slot name="company"></slot>
+	</header>
+
 	<slot></slot>
+	<footer>
+		<slot name="address"></slot>
+	</footer>
 </div>
 
 <style>
+	@font-face {
+		src: url('/Garamond Classico SC Regular.woff2') format('woff2');
+		font-family: 'Silian Rail';
+		font-style: normal;
+		font-weight: 400;
+	}
+
 	.card {
 		display: flex;
 		flex-direction: column;
@@ -23,5 +38,28 @@
 			1px 1px 2px white;
 		color: hsl(50, 20%, 35%);
 		line-height: 1.2;
+	}
+
+	header,
+	footer {
+		width: 100%;
+		display: flex;
+		flex: 1;
+	}
+
+	header {
+		justify-content: space-between;
+	}
+
+	footer {
+		font-size: 0.7em;
+		justify-content: center;
+		align-items: end;
+	}
+
+	.card :global(small) {
+		display: block;
+		font-size: 0.6em;
+		text-align: right;
 	}
 </style>
