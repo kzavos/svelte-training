@@ -41,6 +41,30 @@
 		
 	<span slot="address">358 Exchange Place, New York, N.Y. 10099 fax 212 555 6390 telex 10 4534</span>
 </Card>`;
+
+	// Third
+	let third = `
+<div class="card">
+	<header>
+		<slot name="telephone">
+			<i>(telephone)</i>
+		</slot>
+		
+		<slot name="company">
+			<i>(company name)</i>
+		</slot>
+	</header>
+
+	<slot>
+		<i>(name)</i>
+	</slot>
+		
+	<footer>
+		<slot name="address">
+			<i>(address)</i>
+		</slot>
+	</footer>
+</div>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -130,6 +154,24 @@
 		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
 		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
 			{secondapp}
+		</pre>
+	</div>
+	<br />
+	<div class="prose text-3xl leading-relaxed">Slots fallbacks</div>
+	<br />
+	<div class="leading relaxed prose text-lg">
+		<p>
+			A component can specify fallbacks for any slots that are left empty, by putting content inside
+			the Slot element.
+		</p>
+	</div>
+	<br />
+	<Card />
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">Card.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{third}
 		</pre>
 	</div>
 	<br />

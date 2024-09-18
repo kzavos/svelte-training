@@ -1,12 +1,16 @@
 <div class="card border border-r-2">
 	<header>
-		<slot name="telephone"></slot>
-		<slot name="company"></slot>
+		<slot name="telephone">
+			<i>Telephone</i>
+		</slot>
+		<slot name="company">
+			<i>Company</i>
+		</slot>
 	</header>
 
-	<slot></slot>
+	<slot><i>(Your name here)git</i></slot>
 	<footer>
-		<slot name="address"></slot>
+		<slot name="address"><i>Address</i></slot>
 	</footer>
 </div>
 
