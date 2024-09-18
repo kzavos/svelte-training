@@ -19,6 +19,9 @@
 	style:--bg-2="black"
 	style:--bg-3="goldenrod"
 	on:click={() => flipped = !flipped}>`;
+
+	// Box example
+	import Box from './Box.svelte';
 </script>
 
 <article class=" mx-auto max-w-3xl break-words px-4 py-8">
@@ -91,8 +94,29 @@
 	<br />
 	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
 		<h2 class="mb-4 text-lg font-semibold">
-            When you have a lot of styles, it can start to look a bit wacky. We can tidy things up by using the <code>style:</code> directive		</h2>
+			When you have a lot of styles, it can start to look a bit wacky. We can tidy things up by
+			using the <code>style:</code> directive
+		</h2>
 		<pre><code>{html3}</code></pre>
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold">Component styles</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Often, you need to influence the styles inside a child component. Perhaps we want to make these
+		boxes red, green and blue.
+	</div>
+	<br />
+
+	<div class="boxes">
+		<Box />
+		<Box />
+		<Box />
+	</div>
+
+	<div class="prose text-lg">
+		Inside Box.svelte, change <code>background-color</code> to <code>var(--color, #ddd);</code> so it
+		can be determined by a Customs CSS property.
 	</div>
 </article>
 
