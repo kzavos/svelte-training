@@ -26,6 +26,8 @@
 	</ul>
 {/if}
 
+<div class="prose text-3xl leading-relaxed">title</div>
+
 <style>
 	button {
 		padding: 0 0 0 1.5em;
