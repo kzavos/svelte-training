@@ -16,6 +16,14 @@
 	let selected = options[0];
 
 	let sveltecomponent = `<svelte:component>`;
+	let componentcode = `
+<select bind:value={selected}>
+	{#each options as option}
+		<option value={option}>{option.color}</option>
+	{/each}
+</select>
+
+<svelte:component this={selected.component} />`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -44,7 +52,7 @@
 	<div class="prose text-3xl font-bold leading-relaxed">svelte:component</div>
 	<br />
 	<div class="prose text-lg leading-relaxed">
-		A component can change its type altogether with {sveltecomponent}.
+		A component can change its type altogether with <code>{sveltecomponent}</code>
 	</div>
 	<br />
 	<select bind:value={selected}>
@@ -54,22 +62,18 @@
 	</select>
 	<br />
 	<br />
-	{#if selected.color === 'red'}
-		<RedThing />
-	{:else}
-		<p>TODO others</p>
-	{/if}
+
+	<svelte:component this={selected.component} />
+	<br />
+	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
+		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
+		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
+			{componentcode}
+		</pre>
+	</div>
 </article>
 
 <!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
-<!-- <div class="rounded-lg bg-base-200 p-6 shadow-lg">
-		<h2 class="mb-4 text-lg font-semibold">Your HTML Code</h2>
-		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
-		  &lt;div class="example"&gt;
-			&lt;p&gt;This is an example paragraph.&lt;/p&gt;
-		  &lt;/div&gt;
-		</pre>
-	</div> -->
 
 <style>
 	/* styling here */
