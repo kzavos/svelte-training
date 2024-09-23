@@ -17,7 +17,7 @@
 		{#each files as file}
 			<li>
 				{#if file.files}
-                <svelte:self {...file} />
+					<svelte:self {...file} />
 				{:else}
 					<File {...file} />
 				{/if}
@@ -25,8 +25,6 @@
 		{/each}
 	</ul>
 {/if}
-
-<div class="prose text-3xl leading-relaxed">title</div>
 
 <style>
 	button {
