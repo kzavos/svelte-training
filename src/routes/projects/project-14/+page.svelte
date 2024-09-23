@@ -41,11 +41,11 @@
 
 	let sveltewindow = `<svelte:window>`;
 	let key;
-	let keycode;
+	let keyCode;
 
 	function handleKeyDown(event) {
 		key = event.key;
-		keycode = event.keyCode;
+		keyCode = event.keyCode;
 	}
 </script>
 
@@ -136,10 +136,39 @@
 			object with {sveltewindow}.
 		</p>
 	</div>
+	<br />
 </article>
+<svelte:window on:keydown={handleKeyDown} />
+<div class="test" style="text-align: center">
+	{#if key}
+		<kbd>{key === ' ' ? 'Space' : key}</kbd>
+		<p>{keyCode}</p>
+	{:else}
+		<p>Focus this window and press any key</p>
+	{/if}
+</div>
 
 <!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
 
 <style>
 	/* styling here */
+	.test {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	kbd {
+		border-radius: 4px;
+		font-size: 3em;
+		padding: 0.2em 0.5em;
+		background-color: #eeeeee;
+		border-top: 5px solid #f9f9f9;
+		border-left: 5px solid #f9f9f9;
+		border-right: 5px solid #aaaaaa;
+		border-bottom: 5px solid #aaaaaa;
+		color: #555;
+	}
 </style>
