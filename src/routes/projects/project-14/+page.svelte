@@ -1,7 +1,7 @@
 <script>
 	import Folder from './Folder.svelte';
 	import { files } from './data.js';
-	import Title from '../../../components/Title.svelte';
+	import Title from '../../../components/blog-elements/Title.svelte';
 
 	let svelteself = `<svelte:self>`;
 	// svelte:component
@@ -48,6 +48,8 @@
 		key = event.key;
 		keyCode = event.keyCode;
 	}
+
+	// svelte:window bindings
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
