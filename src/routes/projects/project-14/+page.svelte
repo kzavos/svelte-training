@@ -36,6 +36,17 @@
 		{selected2}.
 	</p>
 </svelte:element>`;
+
+	// <svelte:window>
+
+	let sveltewindow = `<svelte:window>`;
+	let key;
+	let keycode;
+
+	function handleKeyDown(event) {
+		key = event.key;
+		keycode = event.keyCode;
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -107,12 +118,23 @@
 		<p class="text-2xl font-semibold text-cyan-400">You have successfully selected {selected2}.</p>
 	</svelte:element>
 	<br />
-	<br />	
+	<br />
 	<div class="rounded-lg bg-base-200 p-6 shadow-lg">
 		<h2 class="mb-4 text-lg font-semibold">+page.svelte</h2>
 		<pre class="overflow-auto whitespace-pre-wrap rounded-md bg-gray-900 p-4 text-gray-200">
 			{elementhtml}
 		</pre>
+	</div>
+	<br />
+	<div class="prose text-3xl font-bold">{sveltewindow}</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		<p>
+			Just as you can add event listeners to any DOM element, you can add event listeners to the <code
+				>window</code
+			>
+			object with {sveltewindow}.
+		</p>
 	</div>
 </article>
 
