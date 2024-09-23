@@ -4,7 +4,7 @@
 </script>
 
 <span
-	style="background-image: url(/tutorial/icons/{type}.svg)"
+	style="background-image: url(https://cdn4.iconfinder.com/data/icons/radio-buttons-and-switch/512/Bullet_point_green-512.png)"
 	>{name}</span
 >
 

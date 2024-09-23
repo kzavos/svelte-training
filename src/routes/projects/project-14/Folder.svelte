@@ -29,7 +29,8 @@
 <style>
 	button {
 		padding: 0 0 0 1.5em;
-		/* background: url(/tutorial/icons/folder.svg) 0 0.1em no-repeat; */
+		background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Icons8_flat_folder.svg/1024px-Icons8_flat_folder.svg.png)
+			0 0.1em no-repeat;
 		background-size: 1em 1em;
 		color: var(--fg-1);
 		font-weight: bold;
@@ -38,9 +39,9 @@
 		margin: 0;
 	}
 
-	/* .expanded {
-		background-image: url(/tutorial/icons/folder-open.svg);
-	} */
+	.expanded {
+		background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Icons8_flat_folder.svg/1024px-Icons8_flat_folder.svg.png);
+	}
 
 	ul {
 		padding: 0.2em 0 0 0.5em;

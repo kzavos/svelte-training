@@ -8,9 +8,9 @@
 	import BlueThing from './BlueThing.svelte';
 
 	const options = [
-		{ color: 'red' , component: RedThing },
-		{ color: 'green' , component: GreenThing },
-		{ color: 'blue' , component: BlueThing }
+		{ color: 'red', component: RedThing },
+		{ color: 'green', component: GreenThing },
+		{ color: 'blue', component: BlueThing }
 	];
 
 	let selected = options[0];
@@ -28,23 +28,32 @@
 	<div class="prose text-lg leading-relaxed">
 		<p>Hello there, fellow Svelte enthusiasts!</p>
 		<br />
-		<p>Svelte provides a variety of built-in elements that we can use.</p>
+		<p>
+			Svelte introduces unique elements that enhance component-based development. <br />These
+			special elements provide powerful mechanisms for manipulating component context and
+			dynamically rendering other components, offering greater control and flexibility in your
+			Svelte applications.
+		</p>
 	</div>
 	<br />
 	<div class="prose text-3xl font-bold">svelte:self</div>
 	<br />
 
 	<Folder name="Home" {files} expanded />
-
-	<div class="prose text-3xl leading-relaxed">svelte:component</div>
 	<br />
-	<div class="prose text-lg leading-relaxed">A component can change its type altogether with.</div>
+	<div class="prose text-3xl font-bold leading-relaxed">svelte:component</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		A component can change its type altogether with {sveltecomponent}.
+	</div>
+	<br />
 	<select bind:value={selected}>
 		{#each options as option}
 			<option value={option}>{option.color}</option>
 		{/each}
 	</select>
-
+	<br />
+	<br />
 	{#if selected.color === 'red'}
 		<RedThing />
 	{:else}
