@@ -2,6 +2,7 @@
 	import Folder from './Folder.svelte';
 	import { files } from './data.js';
 	import Title from '../../../components/blog-elements/Title.svelte';
+	import Code from '../../../components/blog-elements/Code.svelte';
 
 	let svelteself = `<svelte:self>`;
 	// svelte:component
@@ -49,6 +50,7 @@
 		keyCode = event.keyCode;
 	}
 
+	let windowCode = `<svelte:window on:keydown={handleKeyDown} />`;
 	// svelte:window bindings
 </script>
 
@@ -148,13 +150,12 @@
 			<p>Focus this window and press any key</p>
 		{/if}
 	</div>
-
+	<br />
+	<Code file="+page.svelte" code={windowCode} />
 	<br />
 	<Title title="{sveltewindow} bindings" />
 </article>
 <svelte:window on:keydown={handleKeyDown} />
-
-<!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
 
 <style>
 	/* styling here */
