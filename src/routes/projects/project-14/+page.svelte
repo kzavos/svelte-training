@@ -2,6 +2,7 @@
 	import Folder from './Folder.svelte';
 	import { files } from './data.js';
 
+	let svelteself = `<svelte:self>`;
 	// svelte:component
 	import RedThing from './RedThing.svelte';
 	import GreenThing from './GreenThing.svelte';
@@ -24,6 +25,9 @@
 </select>
 
 <svelte:component this={selected.component} />`;
+
+	// <svelte:element>
+	let svelteelement = `<svelte:element>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -44,12 +48,12 @@
 		</p>
 	</div>
 	<br />
-	<div class="prose text-3xl font-bold">svelte:self</div>
+	<div class="prose text-3xl font-bold">{svelteself}</div>
 	<br />
 
 	<Folder name="Home" {files} expanded />
 	<br />
-	<div class="prose text-3xl font-bold leading-relaxed">svelte:component</div>
+	<div class="prose text-3xl font-bold leading-relaxed">{sveltecomponent}</div>
 	<br />
 	<div class="prose text-lg leading-relaxed">
 		A component can change its type altogether with <code>{sveltecomponent}</code>
@@ -71,6 +75,14 @@
 			{componentcode}
 		</pre>
 	</div>
+	<br />
+	<div class="prose text-3xl font-bold">{svelteelement}</div>
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		As with the previous exercise, we can replace a long sequence of if blocks with a single dynamic
+		element
+	</div>
+	<br />
 </article>
 
 <!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
