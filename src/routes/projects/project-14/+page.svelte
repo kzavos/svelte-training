@@ -1,6 +1,7 @@
 <script>
 	import Folder from './Folder.svelte';
 	import { files } from './data.js';
+	import Title from '../../../components/Title.svelte';
 
 	let svelteself = `<svelte:self>`;
 	// svelte:component
@@ -137,16 +138,19 @@
 		</p>
 	</div>
 	<br />
+	<div class="test" style="text-align: center">
+		{#if key}
+			<kbd>{key === ' ' ? 'Space' : key}</kbd>
+			<p>{keyCode}</p>
+		{:else}
+			<p>Focus this window and press any key</p>
+		{/if}
+	</div>
+
+	<br />
+	<Title title="{sveltewindow} bindings" />
 </article>
 <svelte:window on:keydown={handleKeyDown} />
-<div class="test" style="text-align: center">
-	{#if key}
-		<kbd>{key === ' ' ? 'Space' : key}</kbd>
-		<p>{keyCode}</p>
-	{:else}
-		<p>Focus this window and press any key</p>
-	{/if}
-</div>
 
 <!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
 
