@@ -28,6 +28,10 @@
 
 	// <svelte:element>
 	let svelteelement = `<svelte:element>`;
+	const options2 = ['h1', 'h2', 'h3', 'p', 'marquee'];
+	let selected2 = options2[0];
+	let elementhtml = `
+`
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -83,6 +87,21 @@
 		element
 	</div>
 	<br />
+	<select bind:value={selected2}>
+		{#each options2 as option}
+			<option value={option}>{option}</option>
+		{/each}
+	</select>
+	<br />
+	<!-- {#if selected2 === 'h1'}
+		<p>test</p>
+	{:else}
+		<p>to-do</p>
+	{/if} -->
+
+	<svelte:element this={selected2}>
+		<p class="text-2xl font-semibold">You have successfully selected {selected2}.</p>
+	</svelte:element>
 </article>
 
 <!-- CODE EXAMPLES VERY GOOD TEMPLATE -->
