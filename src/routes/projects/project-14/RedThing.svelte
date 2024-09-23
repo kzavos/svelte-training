@@ -1,7 +1,8 @@
 <p>Red thing</p>
 
 <style>
-    p {
-        color: red;
-    }
+	p {
+		color: red;
+		font-size: xx-large;
+	}
 </style>
