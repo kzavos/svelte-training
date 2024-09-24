@@ -3,6 +3,7 @@
 	import { files } from './data.js';
 	import Title from '../../../components/blog-elements/Title.svelte';
 	import Code from '../../../components/blog-elements/Code.svelte';
+	import Body from '../../../components/blog-elements/Body.svelte';
 
 	let svelteself = `<svelte:self>`;
 	// svelte:component
@@ -154,6 +155,10 @@
 	<Code file="+page.svelte" code={windowCode} />
 	<br />
 	<Title title="{sveltewindow} bindings" />
+	<br />
+	<Body
+		text="svelte:window bindings provide a convenient way to react to events that occur on the browser window. This includes events like resizing, scrolling, or changes in focus. "
+	/>
 </article>
 <svelte:window on:keydown={handleKeyDown} />
 
