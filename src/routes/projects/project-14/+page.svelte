@@ -223,7 +223,7 @@
 		bottom: -60px;
 		transform: translate(-3000%, 0) rotate(-15deg);
 		transform-origin: 100% 100%;
-		transition: transform 3s;
+		transition: transform 1s;
 		height: 300px;
 	}
 
