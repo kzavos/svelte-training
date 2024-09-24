@@ -64,6 +64,11 @@
 	let catHtml = `
 <svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
 	`;
+
+	// svelte:document
+	let selection = ' ';
+
+	const handleSelectionChange = (e) => (selection = document.getSelection());
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -191,9 +196,19 @@
 	<Code file="+page.svelte" code={catHtml} />
 	<br />
 	<Title title="svelte:document" />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The <b>svelte:document</b> element allows you to listen for events that fire on document. This
+		is useful with events like <b>selectionchange</b>, which doesn't fire on window.
+	</div>
+	<br />
+	<h1>Highlight this text to select it below</h1>
+	<p>Selection: {selection}</p>
 </article>
+
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
 <svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
+<svelte:document on:selectionchange={handleSelectionChange} />
 
 <style>
 	/* styling here */
