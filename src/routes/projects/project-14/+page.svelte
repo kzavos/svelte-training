@@ -280,7 +280,7 @@
 	<Title title="svelte:options" />
 	<br />
 	<div class="prose text-lg leading-relaxed">
-		The <b>svelte:options</b> element allows you to specify compiler options such as immutable and accessors.
+		The <b>svelte:options</b> element allows you to specify compiler options such as <b>immutable</b> and accessors.
 	</div>
 	<br />
 	<div class="centered">
