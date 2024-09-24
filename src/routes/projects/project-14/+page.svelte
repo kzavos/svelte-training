@@ -69,6 +69,10 @@
 	let selection = ' ';
 
 	const handleSelectionChange = (e) => (selection = document.getSelection());
+
+	let selectionHtml = `
+<svelte:document on:selectionchange={handleSelectionChange} />
+	`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -184,9 +188,9 @@
 	<Title title="svelte:body" />
 	<br />
 	<div class="prose text-lg leading-relaxed">
-		Similar to <b>svelte:window</b>, the <b>svelte:body</b> element allows you to listen for events that
-		fire on document.body. This is useful with the mouseenter and mouseleave events, which don't fire
-		on window.
+		Similar to <b>svelte:window</b>, the <b>svelte:body</b> element allows you to listen for events
+		that fire on document.body. This is useful with the <b>mouseenter</b> and <b>mouseleave</b> events,
+		which don't fire on window.
 	</div>
 	<img class:curious={hereKitty} alt="Kitten wants to know what's going on" src={Kitten} />
 	<br />
@@ -202,8 +206,10 @@
 		is useful with events like <b>selectionchange</b>, which doesn't fire on window.
 	</div>
 	<br />
-	<h1>Highlight this text to select it below</h1>
+	<h1>Highlight this text in order to select it below</h1>
 	<p>Selection: {selection}</p>
+	<br />
+	<Code file="+page.svelte" code={selectionHtml} />
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
