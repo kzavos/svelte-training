@@ -61,6 +61,9 @@
 	// svelte:body
 	import Kitten from './kitten.png';
 	let hereKitty = false;
+	let catHtml = `
+<svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
+	`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -181,6 +184,13 @@
 		on window.
 	</div>
 	<img class:curious={hereKitty} alt="Kitten wants to know what's going on" src={Kitten} />
+	<br />
+	<i>Move your cursor away from the site</i>
+	<br />
+	<br />
+	<Code file="+page.svelte" code={catHtml} />
+	<br />
+	<Title title="svelte:document" />
 </article>
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
 <svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
