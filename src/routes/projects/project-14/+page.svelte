@@ -53,6 +53,14 @@
 
 	let windowCode = `<svelte:window on:keydown={handleKeyDown} />`;
 	// svelte:window bindings
+	let y;
+	let bindCode = `
+<svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
+	`;
+
+	// svelte:body
+	import Kitten from './kitten.png';
+	let hereKitty = false;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -159,8 +167,23 @@
 	<Body
 		text="svelte:window bindings provide a convenient way to react to events that occur on the browser window. This includes events like resizing, scrolling, or changes in focus. "
 	/>
+	<!-- I am not actually fond of this approach because I prefer being able to bold certain words or add code elements wherever I please -->
+	<br />
+	<div>You have scrolled <b>{y} pixels</b></div>
+	<br />
+	<Code file="+page.svelte" code={bindCode} />
+	<br />
+	<Title title="svelte:body" />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		Similar to <b>svelte:window</b>, the <b>svelte:body</b> element allows you to listen for events that
+		fire on document.body. This is useful with the mouseenter and mouseleave events, which don't fire
+		on window.
+	</div>
+	<img class:curious={hereKitty} alt="Kitten wants to know what's going on" src={Kitten} />
 </article>
-<svelte:window on:keydown={handleKeyDown} />
+<svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
+<svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
 
 <style>
 	/* styling here */
@@ -183,4 +206,22 @@
 		border-bottom: 5px solid #aaaaaa;
 		color: #555;
 	}
+
+	img {
+		position: relative;
+		left: 0;
+		bottom: -60px;
+		transform: translate(-3000%, 0) rotate(-15deg);
+		transform-origin: 100% 100%;
+		transition: transform 3s;
+		height: 300px;
+	}
+
+	.curious {
+		transform: translate(-15%, 0) rotate(0deg);
+	}
+	/* 
+	:global(body) {
+		overflow: hidden;
+	} */
 </style>
