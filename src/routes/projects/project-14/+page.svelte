@@ -94,6 +94,31 @@
 <svelte:head>
 	<title>{title}</title>
 </svelte:head>`;
+
+	// svelte:options
+	import Todo from './Todo.svelte';
+
+	let todos = [
+		{ id: 1, done: true, text: 'wash the car' },
+		{ id: 2, done: false, text: 'take the dog for a walk' },
+		{ id: 3, done: false, text: 'mow the lawn' }
+	];
+
+	function toggle(toggled) {
+		todos = todos.map((todo) => {
+			if (todo === toggled) {
+				// return a new object
+				return {
+					id: todo.id,
+					text: todo.text,
+					done: !todo.done
+				};
+			}
+
+			// return the same object
+			return todo;
+		});
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -252,6 +277,21 @@
 	<br />
 	<Code file="+page.svelte" code={headHtml} />
 	<br />
+	<Title title="svelte:options" />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The <b>svelte:options</b> element allows you to specify compiler options such as immutable and accessors.
+	</div>
+	<br />
+	<div class="centered">
+		<h1>todos</h1>
+
+		<ul class="todos">
+			{#each todos as todo (todo.id)}
+				<Todo {todo} on:change={() => toggle(todo)} />
+			{/each}
+		</ul>
+	</div>
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
@@ -300,4 +340,9 @@
 	:global(body) {
 		overflow: hidden;
 	} */
+
+	.centered {
+		max-width: 20em;
+		margin: 0 auto;
+	}
 </style>
