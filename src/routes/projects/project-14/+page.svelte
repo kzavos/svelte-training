@@ -80,6 +80,20 @@
 	function updateTitle(newTitle) {
 		title = newTitle;
 	}
+	let headHtml = `
+<div class="flex gap-2">
+	<input
+	class="input bg-slate-900"
+	type="text"
+	bind:value={inputText}
+	placeholder="Type a new title here"	/>
+	
+	<button class="btn" on:click={updateTitle(inputText)}>Update title</button>
+</div>
+
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>`;
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -235,6 +249,9 @@
 		/>
 		<button class="btn" on:click={updateTitle(inputText)}>Update title</button>
 	</div>
+	<br />
+	<Code file="+page.svelte" code={headHtml} />
+	<br />
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
