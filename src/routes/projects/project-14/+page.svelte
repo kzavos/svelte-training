@@ -73,6 +73,13 @@
 	let selectionHtml = `
 <svelte:document on:selectionchange={handleSelectionChange} />
 	`;
+
+	// svelte:head
+	let title = 'Svelte tutorial';
+	let inputText = '';
+	function updateTitle(newTitle) {
+		title = newTitle;
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -210,11 +217,32 @@
 	<p>Selection: {selection}</p>
 	<br />
 	<Code file="+page.svelte" code={selectionHtml} />
+	<br />
+	<Title title="svelte:head" />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		The <b>svelte:head</b> element allows you to insert elements inside the <b>head</b> of your
+		document. This is useful for things like <b>title</b> and <b>meta</b> tags, which are critical for
+		good SEO.
+	</div>
+	<br />
+	<div class="flex gap-2">
+		<input
+			class="input bg-slate-900"
+			type="text"
+			bind:value={inputText}
+			placeholder="Type a new title here"
+		/>
+		<button class="btn" on:click={updateTitle(inputText)}>Update title</button>
+	</div>
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
 <svelte:body on:mouseenter={() => (hereKitty = true)} on:mouseleave={() => (hereKitty = false)} />
 <svelte:document on:selectionchange={handleSelectionChange} />
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
 
 <style>
 	/* styling here */
