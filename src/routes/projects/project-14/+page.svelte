@@ -119,6 +119,12 @@
 			return todo;
 		});
 	}
+
+	// svelte:fragment
+	let notLoggedIn = true;
+	function login() {
+		notLoggedIn === false;
+	}
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -280,7 +286,8 @@
 	<Title title="svelte:options" />
 	<br />
 	<div class="prose text-lg leading-relaxed">
-		The <b>svelte:options</b> element allows you to specify compiler options such as <b>immutable</b> and accessors.
+		The <b>svelte:options</b> element allows you to specify compiler options such as
+		<b>immutable</b> and accessors.
 	</div>
 	<br />
 	<div class="centered">
@@ -292,6 +299,17 @@
 			{/each}
 		</ul>
 	</div>
+
+	<br />
+	<Title title="svelte:fragment" />
+	<br />
+	<div class="prose text-lg leading-relaxed">
+		svelte:fragment is a powerful tool in Svelte for grouping elements together without introducing
+		an additional element in the DOM. This can improve performance and readability, especially when
+		dealing with complex components or conditional rendering.
+	</div>
+	<br />
+
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
