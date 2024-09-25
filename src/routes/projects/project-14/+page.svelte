@@ -121,10 +121,32 @@
 	}
 
 	// svelte:fragment
-	let notLoggedIn = true;
-	function login() {
-		notLoggedIn === false;
+	import Board from './Board.svelte';
+	
+	const lines = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6]
+];
+
+function getWinningLine(squares) {
+	for (const line of lines) {
+		const [a, b, c] = line;
+		if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+			return line;
+		}
 	}
+}
+
+	let squares = Array(9).fill('');
+	let next = 'x';
+
+	$: winningLine = getWinningLine(squares);
 </script>
 
 <article class="container mx-auto max-w-3xl break-words px-4 py-8">
@@ -310,6 +332,35 @@
 	</div>
 	<br />
 
+<div class="container">
+	<Board size={3}>
+		<div slot="game">
+			{#each squares as square, i}
+				<button
+					class="square"
+					class:winning={winningLine?.includes(i)}
+					disabled={square}
+					on:click={() => {
+						squares[i] = next;
+						next = next === 'x' ? 'o' : 'x';
+					}}
+				>
+					{square}
+				</button>
+			{/each}
+		</div>
+
+		<div slot="controls">
+			<button on:click={() => {
+				squares = Array(9).fill('');
+				next = 'x';
+			}}>
+				Reset
+			</button>
+		</div>
+	</Board>
+</div>
+
 </article>
 
 <svelte:window bind:scrollY={y} on:keydown={handleKeyDown} />
@@ -362,5 +413,32 @@
 	.centered {
 		max-width: 20em;
 		margin: 0 auto;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		margin: 0 auto;
+	}
+
+	.square, .square:disabled {
+		background: white;
+		border-radius: 0;
+		color: #222;
+		opacity: 1;
+		font-size: 2em;
+		padding: 0;
+	}
+
+	.winning {
+		font-weight: bold;
+	}
+
+	.container:has(.winning) .square:not(.winning) {
+		color: #ccc;
 	}
 </style>
